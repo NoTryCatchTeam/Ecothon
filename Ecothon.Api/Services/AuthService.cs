@@ -46,7 +46,7 @@ public class AuthService : IAuthService
         {
             Id = newUser.Id,
             Email = newUser.Email,
-            Name = newUser.UserName,
+            Username = newUser.UserName,
         };
     }
 

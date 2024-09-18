@@ -80,7 +80,7 @@ builder.Services
 builder.Services.AddDbContext<IDbContext, PostgreSqlDbContext>();
 builder.Services.AddTransient<IAuthService, AuthService>();
 builder.Services.AddTransient<IAuthTokensService, AuthTokensService>();
-// builder.Services.AddTransient<IUsersService, UsersService>();
+builder.Services.AddTransient<IUsersService, UsersService>();
 
 builder.Services
     .AddAuthentication(

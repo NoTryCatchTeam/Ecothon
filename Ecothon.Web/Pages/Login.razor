@@ -1,0 +1,54 @@
+@page "/login"
+@inject IAuthService AuthService
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<EditForm Model="@Form" OnSubmit="@LoginAsync" FormName="LoginForm">
+    <div>
+        <label for="input_email">Email</label>
+        <input @bind="Form.Email" type="text" id="input_email" placeholder="Email">
+    </div>
+    <div >
+        <label for="input_password">Password</label>
+        <input @bind="Form.Password" type="password" id="input_password" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>
+
+@code
+{
+    [SupplyParameterFromForm]
+    public LoginForm Form { get; set; } = new ();
+
+    [SupplyParameterFromQuery(Name = "redirect-uri")]
+    public string RedirectUri { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // TODO Too late check
+        if ((await AuthenticationStateProvider.GetAuthenticationStateAsync())?.User?.Identity?.IsAuthenticated == true)
+        {
+            NavigationManager.NavigateTo(RedirectUri ?? "/manager", true);
+        }
+    }
+
+    private async Task LoginAsync()
+    {
+        var signInResult = await AuthService.SignInAsync(Form.Email, Form.Password);
+
+        if (signInResult)
+        {
+            NavigationManager.NavigateTo(RedirectUri, true);
+        }
+    }
+
+    public class LoginForm
+    {
+        [Required]
+        public string Email { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+    }
+}
