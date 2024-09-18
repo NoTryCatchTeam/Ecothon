@@ -1,0 +1,15 @@
+@page "/map"
+@inject IJSRuntime JS
+
+<div id="map" style="height: 100vh;"></div>
+
+@code
+{
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("initializeMap");
+        }
+    }
+}
