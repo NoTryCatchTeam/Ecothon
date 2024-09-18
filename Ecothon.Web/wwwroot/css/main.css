@@ -116,6 +116,13 @@ legend {
   font-weight: 700;
 }
 
+.header-5 {
+  font-size: 24px;
+  line-height: 28.8px;
+  letter-spacing: -0.50688px;
+  font-weight: 700;
+}
+
 .container {
   width: 100%;
   max-width: 1328px;
@@ -198,11 +205,11 @@ body {
   letter-spacing: -0.17px;
   font-weight: 400;
   font-style: normal;
-  color: rgb(20, 20, 20);
+  color: #141414;
 }
 
 a {
-  color: rgb(20, 20, 20);
+  color: #141414;
   cursor: pointer;
 }
 
@@ -276,11 +283,11 @@ h6 {
 }
 
 input {
-  border: 1px solid rgb(224, 229, 235);
+  border: 1px solid #e0e5eb;
   border-radius: 8px;
   padding: 7px 12px;
   width: 100%;
-  color: rgb(20, 20, 20);
+  color: #141414;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: -0.17px;
@@ -312,48 +319,48 @@ input {
   column-gap: 10px;
 }
 .btn:hover {
-  background-color: rgb(214.7, 221.2, 229);
-  border: 1px solid rgb(214.7, 221.2, 229);
+  background-color: #d7dde5;
+  border: 1px solid #d7dde5;
   transition: all 0.25s ease;
 }
 .btn:active {
-  background-color: rgb(196.1, 205.6, 217);
-  border: 1px solid rgb(196.1, 205.6, 217);
+  background-color: #c4ced9;
+  border: 1px solid #c4ced9;
   transition: all 0.25s ease;
 }
 .btn.btn-secondary {
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   border: 1px solid #1579CE;
   color: #1579CE;
   transition: all 0.25s ease;
 }
 .btn.btn-primary {
-  background-color: rgb(238, 30, 35);
-  border: 1px solid rgb(238, 30, 35);
+  background-color: #ee1e23;
+  border: 1px solid #ee1e23;
   color: #fff;
   transition: all 0.25s ease;
 }
 .btn.btn-primary:hover {
-  background-color: rgb(239.0747933884, 44.2252066116, 48.9090909091);
-  border: 1px solid rgb(239.0747933884, 44.2252066116, 48.9090909091);
+  background-color: #ef2c31;
+  border: 1px solid #ef2c31;
   transition: all 0.25s ease;
 }
 .btn.btn-primary:active {
-  background-color: rgb(234.9483471074, 17.7516528926, 22.9727272727);
-  border: 1px solid rgb(234.9483471074, 17.7516528926, 22.9727272727);
+  background-color: #eb1217;
+  border: 1px solid #eb1217;
   transition: all 0.25s ease;
 }
 
 .nav {
   display: inline-flex;
   border-radius: 12px;
-  background: rgb(255, 255, 255);
+  background: white;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
   justify-content: space-between;
   align-items: center;
   padding-top: 12px;
   padding-bottom: 12px;
-  margin-top: 12px;
+  pointer-events: auto;
 }
 .nav .links {
   display: inline-flex;
@@ -365,38 +372,18 @@ input {
   border: none;
 }
 .nav .links .btn:hover a {
-  border-bottom: 2px solid rgb(238, 30, 35);
+  border-bottom: 2px solid #ee1e23;
 }
 .nav .links .btn a.active {
-  border-bottom: 2px solid rgb(238, 30, 35);
-}
-
-.map-container {
-  position: relative;
-  height: 100vh;
+  border-bottom: 2px solid #ee1e23;
 }
 
 .map {
   position: absolute;
-  width: 100%;
-  height: 100vh;
-  z-index: 1;
-}
-
-.map-filters {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 80px;
-  right: 24px;
-  width: 340px;
-  height: calc(100vh - 80px - 24px);
-  z-index: 2;
-  border-radius: 12px;
-  border: 1px solid #E0E5EB;
-  background: rgb(255, 255, 255);
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
-  padding-bottom: 32px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .tags-container {
@@ -470,29 +457,51 @@ input {
   padding: 6px 0px;
 }
 
+#app {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.main {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  display: flex;
+  flex-flow: column;
+  padding-top: 12px;
+  padding-bottom: 8px;
+  row-gap: 8px;
+}
+
 .accent {
-  color: rgb(238, 30, 35);
+  color: #ee1e23;
 }
 
 .infos {
   display: grid;
   width: 100%;
-  height: 100%;
-  background-color: lightcoral;
   grid-template-columns: repeat(3, 1fr);
   justify-items: end;
-  padding-top: 8px;
+  flex-grow: 1;
 }
 .infos .info-container {
   grid-column: 3/3;
   grid-row: 1/1;
   border-radius: 12px;
+  border: 1px solid #E0E5EB;
   background: white;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
+  pointer-events: auto;
 }
 .infos .filters {
+  width: 340px;
   grid-column: 3/3;
   grid-row: 1/1;
+  padding-bottom: 32px;
 }
 .infos .park {
   width: 460px;

@@ -25,7 +25,24 @@
 // map
 @import "map";
 
+#app {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 .main {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+    display: flex;
+    flex-flow: column;
+    padding-top: 12px;
+    padding-bottom: 8px;
+    row-gap: 8px;
 }
 
 .accent {
@@ -35,23 +52,25 @@
 .infos {
     display: grid;
     width: 100%;
-    height: 100%;
-    background-color: lightcoral;
     grid-template-columns: repeat(3, 1fr);
     justify-items: end;
-    padding-top: 8px;
+    flex-grow: 1;
 
     .info-container {
         grid-column: 3/3;
         grid-row: 1/1;
         border-radius: 12px;
+        border: 1px solid $color-background-globe;
         background: $color-background-light;
         box-shadow: $shadow-base;
+        pointer-events: auto;
     }
 
     .filters {
+        width: 340px;
         grid-column: 3/3;
         grid-row: 1/1;
+        padding-bottom: 32px;
     }
 
     .park {
