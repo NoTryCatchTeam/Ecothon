@@ -20,6 +20,14 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
+    
+    - name: create-json
+      id: create-json
+      uses: jsdaniell/create-json@v1.2.2
+      with:
+        name: "secrets.json"
+        json: ${{ secrets.SECRETS_JSON }}
+        dir: 'Ecothon.Api/'
 
     - name: Build the API Docker image
       run: docker build . --file ./Ecothon.Api/Dockerfile --tag ${{secrets.DOCKER_USER}}/ecothon-api:latest

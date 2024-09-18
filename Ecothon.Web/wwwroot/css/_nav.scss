@@ -6,6 +6,7 @@
     background: $color-background-light;
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
     justify-content: space-between;
+    align-items: center;
     padding-top: 12px;
     padding-bottom: 12px;
     margin-top: 12px;
@@ -21,8 +22,12 @@
 
             &:hover {
                 a {
-                    border-bottom: 2px solid $color-accent;
+                    border-bottom: 2px solid $color-text-link;
                 }
+            }
+
+            a.active {
+                border-bottom: 2px solid $color-text-link;
             }
         }
     }

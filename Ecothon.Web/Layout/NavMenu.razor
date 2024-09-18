@@ -3,10 +3,10 @@
         <h5 class="accent" style="text-transform: uppercase">Красная книга</h5>
         <h6 class="h8" style="margin-top: -2px; text-transform: uppercase">Города Москвы</h6>
     </div>
-    
+
     <div class="links">
         <div class="btn">
-            <NavLink href="/map" ActiveClass="active">
+            <NavLink href="" Match="NavLinkMatch.All" ActiveClass="active">
                 Карта объектов
             </NavLink>
         </div>
@@ -16,14 +16,17 @@
             </NavLink>
         </div>
         <div class="btn">
-            <NavLink href="/education" Match="NavLinkMatch.All" ActiveClass="active">
+            <NavLink href="/education" ActiveClass="active">
                 Образование
             </NavLink>
         </div>
     </div>
-    
-    <div class="btn btn-icon">
-        <img src="images/ic_profile.svg" width="24" height="24" alt="Profile icon" />
-        <p>Личный кабинет</p>
-    </div>
+
+    <NavLink href="/profile">
+        <div class="btn btn-icon">
+            <img src="images/ic_profile.svg" width="24" height="24" alt="Profile icon"/>
+            Личный кабинет
+        </div>
+    </NavLink>
+
 </div>

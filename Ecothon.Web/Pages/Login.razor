@@ -28,7 +28,7 @@
         // TODO Too late check
         if ((await AuthenticationStateProvider.GetAuthenticationStateAsync())?.User?.Identity?.IsAuthenticated == true)
         {
-            NavigationManager.NavigateTo(RedirectUri ?? "/manager", true);
+            NavigationManager.NavigateTo(RedirectUri ?? "/profile", true);
         }
     }
 

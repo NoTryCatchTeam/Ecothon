@@ -94,7 +94,8 @@ builder.Services
         opt =>
         {
             opt.SaveToken = true;
-            opt.RequireHttpsMetadata = builder.Environment.IsProduction();
+            // We don't have https now
+            opt.RequireHttpsMetadata = false; // builder.Environment.IsProduction();
 
             opt.TokenValidationParameters = new TokenValidationParameters
             {
@@ -119,7 +120,9 @@ builder.Services.AddCors(
             "http://localhost:5195",
             "https://localhost:7264",
             "http://localhost:5282",
-            "http://localhost:7282",
+            "https://localhost:7282",
+            "http://45.142.36.65",
+            "http://45.142.36.65:8080",
         };
 
         options.AddPolicy(
@@ -139,12 +142,8 @@ using (var scope = app.Services.CreateScope())
     db.Database.Migrate();
 }
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseCors("wasm");
 

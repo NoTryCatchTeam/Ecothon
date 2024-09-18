@@ -109,13 +109,6 @@ legend {
   font-style: normal;
   font-display: swap;
 }
-.header-5 {
-  font-size: 24px;
-  line-height: 28.8px;
-  letter-spacing: -0.50688px;
-  font-weight: 700;
-}
-
 .container {
   width: 100%;
   max-width: 1328px;
@@ -141,56 +134,6 @@ legend {
   }
 }
 
-.title-container {
-  display: flex;
-  margin-top: 24px;
-}
-@media screen and (max-width: 1024px) {
-  .title-container {
-    margin-top: 24px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .title-container {
-    margin-top: 12px;
-  }
-}
-
-.title-container .info-label {
-  margin-left: 12px;
-}
-
-.header-5 {
-  font-size: 24px;
-  line-height: 28.8px;
-  letter-spacing: -0.50688px;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Onest";
-  src: url("../fonts/onest/OnestRegular.eot");
-  src: url("../fonts/onest/OnestRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/onest/OnestRegular.woff") format("woff"), url("../fonts/onest/OnestRegular.woff2") format("woff2"), url("../fonts/onest/OnestRegular.ttf") format("truetype"), url("../fonts/onest/OnestRegular.svg#Sri-TSCRegular") format("svg");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Onest";
-  src: url("../fonts/onest/OnestMedium.eot");
-  src: url("../fonts/onest/OnestMedium.eot?#iefix") format("embedded-opentype"), url("../fonts/onest/OnestMedium.woff") format("woff"), url("../fonts/onest/OnestMedium.woff2") format("woff2"), url("../fonts/onest/OnestMedium.ttf") format("truetype"), url("../fonts/onest/OnestMedium.svg#Sri-TSCRegular") format("svg");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Onest";
-  src: url("../fonts/onest/OnestBold.eot");
-  src: url("../fonts/onest/OnestBold.eot?#iefix") format("embedded-opentype"), url("../fonts/onest/OnestBold.woff") format("woff"), url("../fonts/onest/OnestBold.woff2") format("woff2"), url("../fonts/onest/OnestBold.ttf") format("truetype"), url("../fonts/onest/OnestBold.svg#Sri-TSCRegular") format("svg");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 body {
   font-family: "Onest", sans-serif;
   font-size: 16px;
@@ -198,11 +141,11 @@ body {
   letter-spacing: -0.17px;
   font-weight: 400;
   font-style: normal;
-  color: #000;
+  color: #141414;
 }
 
 a {
-  color: #000;
+  color: #141414;
   cursor: pointer;
 }
 
@@ -255,43 +198,16 @@ h6 {
   font-weight: 700;
 }
 
-.info-label {
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: -0.2px;
-  font-weight: 400;
-  font-family: "Onest", serif;
-  color: rgba(0, 0, 0, 0.6);
-  font-weight: 400;
-}
-
-.indicator-label {
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: -0.2px;
-  font-weight: 400;
-  font-family: "Onest", serif;
-  color: #1579CE;
-  font-weight: 400;
-}
-
 input {
-  border: 1px solid #000;
+  border: 1px solid #e0e5eb;
   border-radius: 8px;
   padding: 7px 12px;
   width: 100%;
-  color: #000;
+  color: #141414;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: -0.17px;
   font-weight: 400;
-}
-
-.header-5 {
-  font-size: 24px;
-  line-height: 28.8px;
-  letter-spacing: -0.50688px;
-  font-weight: 700;
 }
 
 .btn {
@@ -312,44 +228,39 @@ input {
   user-select: none;
 }
 .btn:hover {
-  background-color: rgb(214.7, 221.2, 229);
-  border: 1px solid rgb(214.7, 221.2, 229);
+  background-color: #d7dde5;
+  border: 1px solid #d7dde5;
   transition: all 0.25s ease;
 }
 .btn:active {
-  background-color: rgb(196.1, 205.6, 217);
-  border: 1px solid rgb(196.1, 205.6, 217);
-  transition: all 0.25s ease;
-}
-.btn.btn-secondary {
-  background-color: #fff;
-  border: 1px solid #1579CE;
-  color: #1579CE;
+  background-color: #c4ced9;
+  border: 1px solid #c4ced9;
   transition: all 0.25s ease;
 }
 .btn.btn-primary {
-  background-color: #009B65;
-  border: 1px solid #009B65;
+  background-color: #ee1e23;
+  border: 1px solid #ee1e23;
   color: #fff;
   transition: all 0.25s ease;
 }
 .btn.btn-primary:hover {
-  background-color: rgb(0, 170.3, 110.9696774194);
-  border: 1px solid rgb(0, 170.3, 110.9696774194);
+  background-color: #ef2c31;
+  border: 1px solid #ef2c31;
   transition: all 0.25s ease;
 }
 .btn.btn-primary:active {
-  background-color: rgb(0, 139.7, 91.0303225806);
-  border: 1px solid rgb(0, 139.7, 91.0303225806);
+  background-color: #eb1217;
+  border: 1px solid #eb1217;
   transition: all 0.25s ease;
 }
 
 .nav {
   display: inline-flex;
   border-radius: 12px;
-  background: #fff;
+  background: white;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
   justify-content: space-between;
+  align-items: center;
   padding-top: 12px;
   padding-bottom: 12px;
   margin-top: 12px;
@@ -364,110 +275,14 @@ input {
   border: none;
 }
 .nav .links .btn:hover a {
-  border-bottom: 2px solid rgb(238, 30, 35);
+  border-bottom: 2px solid #ee1e23;
 }
-
-.map-container {
-  position: relative;
-  height: 100vh;
-}
-
-.map {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  z-index: 1;
-}
-
-.map-filters {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 80px;
-  right: 24px;
-  width: 340px;
-  height: calc(100vh - 80px - 24px);
-  z-index: 2;
-  border-radius: 12px;
-  border: 1px solid #E0E5EB;
-  background: #fff;
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
-  padding-bottom: 32px;
-}
-
-.tags-container {
-  display: flex;
-  margin-top: 8px;
-  gap: 8px;
-}
-
-.tag {
-  padding: 2px 8px;
-  display: flex;
-  align-items: center;
-  border-radius: 6px;
-  gap: 4px;
-  background: #1579CE;
-}
-
-.tag-text {
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: -0.2px;
-  font-weight: 400;
-  color: #fff;
-}
-
-.filter-form-label {
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: -0.2px;
-  font-weight: 400;
-  color: rgba(20, 20, 20, 0.6);
-}
-
-.filter-form-select-container {
-  width: 100%;
-  background: #F6F7F9;
-  border-radius: 8px;
-  padding: 6px 12px;
-}
-
-.filter-form-select-container select {
-  width: 100%;
-}
-
-.filter-form-select-option {
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: -0.17px;
-  font-weight: 400;
-}
-
-.filter-form-section {
-  padding-top: 24px;
-}
-
-.filter-form-section .filter-form-label {
-  margin-bottom: 4xp;
-}
-
-.separator {
-  height: 1px;
-  background: #E0E5EB;
-}
-
-.filters-content {
-  flex: 1;
-}
-
-.filters-submit {
-  width: 100%;
-  padding: 6px 0px;
+.nav .links .btn a.active {
+  border-bottom: 2px solid #ee1e23;
 }
 
 .accent {
-  color: rgb(238, 30, 35);
+  color: #ee1e23;
 }
 
 /*# sourceMappingURL=main.css.map */
