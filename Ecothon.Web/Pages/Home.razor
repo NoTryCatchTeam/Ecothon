@@ -1,7 +1,7 @@
 ﻿@page "/"
 @inject IJSRuntime Js
 
-<PageTitle>Главная</PageTitle>
+<PageTitle>Карта объектов</PageTitle>
 
 <div id="map" class="map"></div>
 
@@ -37,7 +37,7 @@
             </div>
 
             <div class="park-section about @(_selectedMenuItem == 0 ? "active" : "")">
-                <h6 style="font-weight: 600">Национальный парк Лосиный остров</h6>
+                <h6 style="font-weight: 600">Москворецкий природно-исторический парк</h6>
 
                 <div class="image">
                     <img src="images/image_park.png" alt="Park">
@@ -156,13 +156,14 @@
         _objectsOpened = true;
         ChangeObjectDisplayStyle();
     }
-    
+
     private void OnCloseParkClickAction()
     {
         _parkOpened = false;
+        _selectedMenuItem = 0;
         ChangeParkDisplayStyle();
     }
-    
+
     private void OnCloseObjectClickAction()
     {
         _objectsOpened = false;
@@ -186,5 +187,4 @@
         public string Specie { get; set; }
     }
 
-    
 }
