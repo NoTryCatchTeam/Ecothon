@@ -84,7 +84,7 @@ public class JwtAuthenticationStateProvider : AuthenticationStateProvider, IAuth
 
             identity = new ClaimsIdentity(
                 [
-                    new Claim(ClaimTypes.Email, user.Email),
+                    new Claim(ClaimTypes.Name, user.Email),
                 ],
                 JwtBearerConstants.AUTHENTICATION_SCHEME);
 
