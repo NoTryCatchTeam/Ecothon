@@ -21,5 +21,5 @@ jobs:
                 docker stop api && docker rm api
                 docker rmi swamp1820/ecothon-api
                 docker pull swamp1820/ecothon-api:latest
-                docker run --name api -d --restart always -p 8081:80 \
+                docker run --name api -d --restart always -p 8080:8080 \
                 swamp1820/ecothon-api 

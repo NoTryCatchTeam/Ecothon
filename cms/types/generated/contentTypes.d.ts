@@ -362,37 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiRbObjectRbObject extends Schema.CollectionType {
-  collectionName: 'rb_objects';
-  info: {
-    singularName: 'rb-object';
-    pluralName: 'rb-objects';
-    displayName: 'rb_object';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    NameRu: Attribute.String;
-    NameLat: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::rb-object.rb-object',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::rb-object.rb-object',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -819,6 +788,260 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiCadastreCadastre extends Schema.CollectionType {
+  collectionName: 'cadastres';
+  info: {
+    singularName: 'cadastre';
+    pluralName: 'cadastres';
+    displayName: 'Cadastre';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cadastral_number: Attribute.String;
+    owner: Attribute.Relation<
+      'api::cadastre.cadastre',
+      'oneToOne',
+      'api::owner.owner'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cadastre.cadastre',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cadastre.cadastre',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFamilyFamily extends Schema.CollectionType {
+  collectionName: 'families';
+  info: {
+    singularName: 'family';
+    pluralName: 'families';
+    displayName: 'family';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    NameRu: Attribute.String;
+    NameLat: Attribute.String;
+    order: Attribute.Relation<
+      'api::family.family',
+      'oneToOne',
+      'api::order.order'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::family.family',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::family.family',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOrderOrder extends Schema.CollectionType {
+  collectionName: 'orders';
+  info: {
+    singularName: 'order';
+    pluralName: 'orders';
+    displayName: 'Order';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    NameRu: Attribute.String;
+    NameLat: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOwnerOwner extends Schema.CollectionType {
+  collectionName: 'owners';
+  info: {
+    singularName: 'owner';
+    pluralName: 'owners';
+    displayName: 'Owner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    NameRu: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::owner.owner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::owner.owner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiParkPark extends Schema.CollectionType {
+  collectionName: 'parks';
+  info: {
+    singularName: 'park';
+    pluralName: 'parks';
+    displayName: 'park';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    NameRu: Attribute.String;
+    description: Attribute.Text;
+    polygon: Attribute.JSON;
+    location: Attribute.Text;
+    area: Attribute.Decimal;
+    negative_impact: Attribute.Text;
+    cadastres: Attribute.Relation<
+      'api::park.park',
+      'oneToMany',
+      'api::cadastre.cadastre'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::park.park', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::park.park', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRbObjectRbObject extends Schema.CollectionType {
+  collectionName: 'rb_objects';
+  info: {
+    singularName: 'rb-object';
+    pluralName: 'rb-objects';
+    displayName: 'rb_object';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    NameRu: Attribute.String;
+    NameLat: Attribute.String;
+    family: Attribute.Relation<
+      'api::rb-object.rb-object',
+      'oneToOne',
+      'api::family.family'
+    >;
+    population: Attribute.Text;
+    spreading: Attribute.Text;
+    gallery: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    habitat: Attribute.Text;
+    limiting: Attribute.Text;
+    security: Attribute.Text;
+    measures: Attribute.Text;
+    status: Attribute.Relation<
+      'api::rb-object.rb-object',
+      'oneToOne',
+      'api::status.status'
+    >;
+    parks: Attribute.Relation<
+      'api::rb-object.rb-object',
+      'oneToMany',
+      'api::park.park'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::rb-object.rb-object',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::rb-object.rb-object',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiStatusStatus extends Schema.CollectionType {
+  collectionName: 'statuses';
+  info: {
+    singularName: 'status';
+    pluralName: 'statuses';
+    displayName: 'Status';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Description: Attribute.String;
+    status: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::status.status',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::status.status',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -829,7 +1052,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::rb-object.rb-object': ApiRbObjectRbObject;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -838,6 +1060,13 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::cadastre.cadastre': ApiCadastreCadastre;
+      'api::family.family': ApiFamilyFamily;
+      'api::order.order': ApiOrderOrder;
+      'api::owner.owner': ApiOwnerOwner;
+      'api::park.park': ApiParkPark;
+      'api::rb-object.rb-object': ApiRbObjectRbObject;
+      'api::status.status': ApiStatusStatus;
     }
   }
 }

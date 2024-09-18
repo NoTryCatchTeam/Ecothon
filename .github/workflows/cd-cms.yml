@@ -21,7 +21,7 @@ jobs:
                 docker stop cms && docker rm cms
                 docker rmi swamp1820/ecothon-cms
                 docker pull swamp1820/ecothon-cms:latest
-                docker run --name cms -d --restart always -p 8080:1337 \
+                docker run --name cms -d --restart always -p 8081:1337 \
                 -v /upload:/opt/app/public/uploads \
                 -e "ADMIN_JWT_SECRET=${{ secrets.ADMIN_JWT_SECRET }}" \
                 -e "API_TOKEN_SALT=${{ secrets.API_TOKEN_SALT }}" \
