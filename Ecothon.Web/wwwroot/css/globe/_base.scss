@@ -1,0 +1,44 @@
+body {
+    font-family: $font-body;
+    @include body-m;
+    font-style: normal;
+    color: $color-text-primary;
+}
+
+a {
+    color: $color-text-link;
+    cursor: pointer;
+}
+
+h1 {
+    @include header-1;
+}
+
+h2 {
+    @include header-2;
+}
+
+h3 {
+    @include header-3;
+}
+
+h4 {
+    @include header-4;
+}
+
+h5 {
+    @include header-5;
+}
+
+h6 {
+    @include header-6;
+}
+
+input {
+    border: 1px solid $color-background-border;
+    border-radius: 8px;
+    padding: 7px 12px;
+    width: 100%;
+    color: $color-text-primary;
+    @include body-m;
+}

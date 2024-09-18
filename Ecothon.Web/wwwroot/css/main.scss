@@ -1,0 +1,10 @@
+@import 'base/reset'; //сброс браузерных стилей
+@import 'base/var'; //переменные
+@import 'base/fonts'; //шрифты
+@import 'base/mixins'; //миксины
+@import 'base/grid'; //сетка
+
+
+//базовые компоненты
+@import 'globe/base'; //база
+@import 'globe/button'; //кнопки
