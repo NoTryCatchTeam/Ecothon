@@ -12,7 +12,7 @@ WORKDIR /opt/app
 COPY ./cms .
 RUN npm run build
 
-FROM node:16-alpine
+FROM node:18-alpine
 # Installing libvips-dev for sharp Compatibility
 RUN apk add vips-dev
 RUN rm -rf /var/cache/apk/*
