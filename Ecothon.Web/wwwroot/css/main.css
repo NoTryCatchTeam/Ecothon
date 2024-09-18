@@ -191,6 +191,13 @@ h6 {
   font-weight: 700;
 }
 
+.h8 {
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.608256px;
+  font-weight: 700;
+}
+
 input {
   border: 1px solid #000;
   border-radius: 8px;
@@ -205,11 +212,20 @@ input {
 
 .btn {
   display: inline-block;
-  padding: 7px 12px;
+  padding: 4px 12px;
   background-color: #E0E5EB;
   border: 1px solid #E0E5EB;
   border-radius: 8px;
   transition: all 0.25s ease;
+  cursor: pointer;
+}
+.btn.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 10px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .btn:hover {
   background-color: #d7dde5;
@@ -236,4 +252,33 @@ input {
   background-color: #008c5b;
   border: 1px solid #008c5b;
   transition: all 0.25s ease;
-}/*# sourceMappingURL=main.css.map */
+}
+
+.nav {
+  display: inline-flex;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
+  justify-content: space-between;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-top: 12px;
+}
+.nav .links {
+  display: inline-flex;
+  align-items: center;
+}
+.nav .links .btn {
+  border-radius: 0;
+  background-color: transparent;
+  border: none;
+}
+.nav .links .btn:hover a {
+  border-bottom: 2px solid #ee1e23;
+}
+
+.accent {
+  color: #ee1e23;
+}
+
+/*# sourceMappingURL=main.css.map */

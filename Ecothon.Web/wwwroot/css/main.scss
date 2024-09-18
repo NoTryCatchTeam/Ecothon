@@ -1,10 +1,31 @@
-@import 'base/reset'; //сброс браузерных стилей
-@import 'base/var'; //переменные
-@import 'base/fonts'; //шрифты
-@import 'base/mixins'; //миксины
-@import 'base/grid'; //сетка
+//сброс браузерных стилей
+@import 'base/reset';
 
+//переменные
+@import 'base/var';
+
+//шрифты
+@import 'base/fonts';
+
+//миксины
+@import 'base/mixins';
+
+//сетка
+@import 'base/grid';
 
 //базовые компоненты
-@import 'globe/base'; //база
-@import 'globe/button'; //кнопки
+@import 'globe/base';
+
+//базовые кнопки
+@import 'globe/button';
+
+// navigation bar
+@import "nav";
+
+.main {
+}
+
+.accent {
+    color: $color-accent;
+}
+

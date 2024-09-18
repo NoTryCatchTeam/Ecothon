@@ -10,13 +10,18 @@ $color-text-secondary: #000;
 $color-text-link: #000;
 $color-text-primary-inverse: #fff;
 
+$color-accent: rgba(238, 30, 35, 1);
+$color-gray-05: rgba(20, 20, 20, 0.05);
 
 //fonts
-$font-header: "Onest", sans-serif;;
-$font-body: "Onest", sans-serif;;
+$font-header: "Onest", sans-serif;
+;
+$font-body: "Onest", sans-serif;
+;
 
 //path
 $path-font-main: '../fonts/onest';
 
 //transition
-$transition: all .25s ease;
+$transition-sec: .25s;
+$transition: all $transition-sec ease;
