@@ -13,7 +13,7 @@ async function initializeMap() {
         {
             location: {
                 // The map center coordinates
-                center: [55.75, 37.62],
+                center: [37.62, 55.75],
 
                 // Zoom level
                 zoom: 10
