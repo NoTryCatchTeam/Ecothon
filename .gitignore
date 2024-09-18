@@ -10,3 +10,6 @@ riderModule.iml
 
 secrets.json
 secrets.*.json
+
+*/wwwroot/css/main.css
+*/wwwroot/css/main.css.map
