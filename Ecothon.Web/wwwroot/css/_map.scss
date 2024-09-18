@@ -1,0 +1,84 @@
+@import 'base/var';
+
+.map-container {
+    position: relative;
+    height: 100vh;
+}
+.map {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+.map-filters {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 24px;
+    width: 340px;
+    height: calc(100vh - 80px - 24px);
+    z-index: 2;
+    border-radius: 12px;
+    border: 1px solid $color-background-globe;
+    background: $color-background-light;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+    padding-bottom: 32px;
+}
+.tags-container {
+    display: flex;
+    margin-top: 8px;
+    gap: 8px;
+}
+.tag {
+    padding: 2px 8px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    gap: 4px;
+    background: $color-indicator;
+}
+.tag-text {
+    @include body-s;
+    color: $color-text-primary-inverse;
+}
+.filter-form-label {
+    @include body-s;
+    color: $color-gray-6;
+}
+.filter-form-select-container
+{
+    width: 100%;
+    background: $color-select;
+    border-radius: 8px;
+    padding: 6px 12px;
+}
+.filter-form-select-container select
+{
+    width: 100%;
+}
+.filter-form-select-option
+{
+    @include body-m;
+}
+.filter-form-section
+{
+    padding-top: 24px;
+}
+.filter-form-section .filter-form-label
+{
+    margin-bottom: 4xp;
+}
+.separator{
+    height: 1px;
+    background: $color-background-globe;
+}
+.filters-content {
+    flex: 1;
+}
+
+.filters-submit
+{
+    width: 100%;
+    padding: 6px 0px;
+}

@@ -1,5 +1,6 @@
 @import '../base/var';
 @import '../base/mixins';
+@import '../base/fonts';
 
 body {
     font-family: $font-body;
@@ -39,6 +40,20 @@ h6 {
 
 .h8 {
     @include header-8;
+}
+
+.info-label {
+    @include body-s;
+    font-family: "Onest", serif;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 400;
+}
+
+.indicator-label {
+    @include body-s;
+    font-family: "Onest", serif;
+    color: $color-indicator;
+    font-weight: 400;
 }
 
 input {

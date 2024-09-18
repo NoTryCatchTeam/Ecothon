@@ -1,36 +1,139 @@
 @page "/map"
 @inject IJSRuntime JS
 
-<link href="css/map.scss" rel="stylesheet" />
-
 <div class="map-container">
 
-    <div id="map" class="map"></div>
+    <div id="map" class="map"/>
 
-    <div class="map-instruments">
-        <EditForm FormName="FilterMapForm">
-            <div>
-                <label for="input_email">Email</label>
-                <input type="text" id="input_email" placeholder="Email">
+    <div class="container map-filters">
+        
+        <div class="filters-content">
+            
+            <div class="title-container">
+                <h5>Фильтр</h5>
+                @if (_foundedObjects != null)
+                {
+                    <p class="info-label">
+                        <span class="info-label">найдено: </span>
+                        <span class="indicator-label">@_foundedObjects.Length</span>
+                    </p>
+                }
             </div>
-            <div >
-                <label for="input_password">Password</label>
-                <input type="password" id="input_password" placeholder="Password">
+            <div class="filter-form-section">
+                <label for="park" class="filter-form-label">Парк:</label>
+    
+                <div class="filter-form-select-container">
+                    <select id="park" name="options">
+                        <option value="" disabled selected class="filter-form-select-option">Выберите</option>
+                        <option value="option1" class="filter-form-select-option">Option 1</option>
+                        <option value="option2" class="filter-form-select-option">Option 2</option>
+                        <option value="option3" class="filter-form-select-option">Option 3</option>
+                        <option value="option4" class="filter-form-select-option">Option 4</option>
+                    </select>
+                </div>
+    
+                <div class="tags-container">
+                    <div class="btn tag">
+                        <p class="tag-text">Парк 1</p>
+                        <img src="images/ic_delete.svg" width="16" height="16" alt="Delete"/>
+                    </div>
+                    <div class="btn tag">
+                        <p class="tag-text">Парк 2</p>
+                        <img src="images/ic_delete.svg" width="16" height="16" alt="Delete"/>
+                    </div>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </EditForm>
+    
+            <div class="separator" style="margin-top: 16px"/>
+    
+            <div class="filter-form-section">
+                <label for="type" class="filter-form-label">Тип:</label>
+    
+                <div class="filter-form-select-container">
+                    <select id="type" name="options">
+                        <option value="" disabled selected class="filter-form-select-option">Выберите</option>
+                        <option value="option1" class="filter-form-select-option">Option 1</option>
+                        <option value="option2" class="filter-form-select-option">Option 2</option>
+                        <option value="option3" class="filter-form-select-option">Option 3</option>
+                        <option value="option4" class="filter-form-select-option">Option 4</option>
+                    </select>
+                </div>
+            </div>
+    
+            <div class="filter-form-section">
+                <label for="class" class="filter-form-label">Класс:</label>
+    
+                <div class="filter-form-select-container">
+                    <select id="class" name="options">
+                        <option value="" disabled selected class="filter-form-select-option">Выберите</option>
+                        <option value="option1" class="filter-form-select-option">Option 1</option>
+                        <option value="option2" class="filter-form-select-option">Option 2</option>
+                        <option value="option3" class="filter-form-select-option">Option 3</option>
+                        <option value="option4" class="filter-form-select-option">Option 4</option>
+                    </select>
+                </div>
+            </div>
+    
+            <div class="filter-form-section">
+                <label for="squard" class="filter-form-label">Отряд:</label>
+    
+                <div class="filter-form-select-container">
+                    <select id="squard" name="options">
+                        <option value="" disabled selected class="filter-form-select-option">Выберите</option>
+                        <option value="option1" class="filter-form-select-option">Option 1</option>
+                        <option value="option2" class="filter-form-select-option">Option 2</option>
+                        <option value="option3" class="filter-form-select-option">Option 3</option>
+                        <option value="option4" class="filter-form-select-option">Option 4</option>
+                    </select>
+                </div>
+            </div>
+    
+            <div class="filter-form-section">
+                <label for="kind" class="filter-form-label">Виды:</label>
+    
+                <div class="filter-form-select-container">
+                    <select id="kind" name="options">
+                        <option value="" disabled selected class="filter-form-select-option">Выберите</option>
+                        <option value="option1" class="filter-form-select-option">Option 1</option>
+                        <option value="option2" class="filter-form-select-option">Option 2</option>
+                        <option value="option3" class="filter-form-select-option">Option 3</option>
+                        <option value="option4" class="filter-form-select-option">Option 4</option>
+                    </select>
+                </div>
+    
+                <div class="tags-container">
+                    <div class="btn tag">
+                        <p class="tag-text">Горностай 1</p>
+                        <img src="images/ic_delete.svg" width="16" height="16" alt="Delete"/>
+                    </div>
+                    <div class="btn tag">
+                        <p class="tag-text">Горностай 2</p>
+                        <img src="images/ic_delete.svg" width="16" height="16" alt="Delete"/>
+                    </div>
+                </div>
+            </div>
+                    
+        </div>
+
+        <button type="submit" class="btn btn-secondary filters-submit">Сбросить фильтр</button>
     </div>
 
 </div>
 
-
 @code
 {
+    private MapObject[] _foundedObjects;
+    
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await JS.InvokeVoidAsync("initializeMap");
         }
+    }
+
+    public class MapObject
+    {
+        
     }
 }

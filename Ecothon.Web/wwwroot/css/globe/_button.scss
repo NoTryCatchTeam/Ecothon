@@ -30,7 +30,13 @@
         border: 1px solid darken($color-background-globe, 9);
         transition: $transition;
     }
-
+    &.btn-secondary {
+        background-color: $color-background-light;
+        border: 1px solid $color-indicator;
+        color: $color-indicator;
+        transition: $transition;
+    }
+    
     &.btn-primary {
         background-color: $color-background-accent;
         border: 1px solid $color-background-accent;
