@@ -19,3 +19,20 @@
         padding: 0 12px;
     }
 }
+
+.title-container {
+    display: flex;
+    margin-top: 24px;
+
+    @include _tablet {
+        margin-top: 24px;
+    }
+    @include _mobile {
+        margin-top: 12px;
+    }
+}
+
+.title-container .info-label
+{
+    margin-left: 12px;
+}

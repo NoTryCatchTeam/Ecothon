@@ -68,3 +68,14 @@
     font-weight: 400;
 }
 
+@mixin body-s {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.2px;
+    font-weight: 400;
+}
+
+.header-5 {
+    @include header-5;
+}
+
