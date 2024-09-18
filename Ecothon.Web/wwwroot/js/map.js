@@ -20,7 +20,8 @@ function addPolygonOnMap(coordinates, name) {
             hintContent: name
         }, {
             fillColor: '#EE1E23',
-            fillOpacity: 0.4
+            fillOpacity: 0.4,
+            strokeWidth: 0
         });
 
         window.map.geoObjects.add(polygon);
