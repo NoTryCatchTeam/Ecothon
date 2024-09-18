@@ -6,16 +6,17 @@ on:
     workflows: [Docker CI CMS]
     types: [completed]
 jobs:
-    cd:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v4
-            # Make sure the @v0.9.0 matches the current version of the action
-        - uses: webfactory/ssh-agent@v0.9.0
-          with:
-            ssh-private-key: ${{ secrets.SSH_KEY }}
-        - name: deploy CMS
-          run: |
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Run Docker SSH
+            uses: appleboy/ssh-action@master
+            with:
+              host: ${{ secrets.SSH_HOST }}
+              username: ${{ secrets.SSH_USERNAME }}
+              password: ${{ secrets.SSH_PASSWORD }}
+              port: 22
+              script: |
                 ssh sakolch3@${{ secrets.SSH_HOST }}
                 docker stop cms && docker rm cms
                 docker rmi swamp1820/ecothon-cms
