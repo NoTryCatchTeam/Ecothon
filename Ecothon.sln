@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecothon.Web", "Ecothon.Web\Ecothon.Web.csproj", "{86585958-26E8-4899-B75A-23F4DAC1AA04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecothon.Api", "Ecothon.Api\Ecothon.Api.csproj", "{EB2AE0B6-7925-4EF6-BA3C-1ED138FB019F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{86585958-26E8-4899-B75A-23F4DAC1AA04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86585958-26E8-4899-B75A-23F4DAC1AA04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86585958-26E8-4899-B75A-23F4DAC1AA04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB2AE0B6-7925-4EF6-BA3C-1ED138FB019F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2AE0B6-7925-4EF6-BA3C-1ED138FB019F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2AE0B6-7925-4EF6-BA3C-1ED138FB019F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2AE0B6-7925-4EF6-BA3C-1ED138FB019F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
