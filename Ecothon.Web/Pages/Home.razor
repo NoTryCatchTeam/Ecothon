@@ -120,7 +120,18 @@
     {
         if (firstRender)
         {
-            await Js.InvokeVoidAsync("initializeMap");
+            await Js.InvokeVoidAsync("initializeMap", 55.75, 37.62);
+            
+            var coordinates = new[]
+            {
+                new[] { 55.75, 37.80 },
+                new[] { 55.75, 37.60 },
+                new[] { 55.70, 37.60 },
+                new[] { 55.70, 37.80 },
+                new[] { 55.75, 37.80 }
+            };
+            
+            await Js.InvokeVoidAsync("addPolygonOnMap", coordinates, "name");
         }
     }
 
