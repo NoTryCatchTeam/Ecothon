@@ -13,6 +13,8 @@ COPY ./cms .
 RUN npm run build
 
 FROM node:18-alpine
+ADD https://storage.yandexcloud.net/cloud-certs/CA.pem /usr/local/share/ca-certificates/ya.crt
+RUN update-ca-certificates
 # Installing libvips-dev for sharp Compatibility
 RUN apk add vips-dev
 RUN rm -rf /var/cache/apk/*
