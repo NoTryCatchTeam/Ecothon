@@ -1,0 +1,25 @@
+name: Deploy API
+
+on: 
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Docker CI Client]
+    types: [completed]
+jobs:
+
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Run Docker SSH
+            uses: appleboy/ssh-action@master
+            with:
+              host: ${{ secrets.SSH_HOST }}
+              username: ${{ secrets.SSH_USERNAME }}
+              password: ${{ secrets.SSH_PASSWORD }}
+              port: 22
+              script: |
+                docker stop client && docker rm client
+                docker rmi swamp1820/ecothon-client
+                docker pull swamp1820/ecothon-client:latest
+                docker run --name client -d --restart always -p 80:80 \
+                swamp1820/ecothon-client 
