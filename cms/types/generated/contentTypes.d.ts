@@ -788,6 +788,42 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiCadastreCadastre extends Schema.CollectionType {
+  collectionName: 'cadastres';
+  info: {
+    singularName: 'cadastre';
+    pluralName: 'cadastres';
+    displayName: 'Cadastre';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cadastral_number: Attribute.String;
+    owner: Attribute.Relation<
+      'api::cadastre.cadastre',
+      'oneToOne',
+      'api::owner.owner'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cadastre.cadastre',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cadastre.cadastre',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFamilyFamily extends Schema.CollectionType {
   collectionName: 'families';
   info: {
@@ -857,6 +893,69 @@ export interface ApiOrderOrder extends Schema.CollectionType {
   };
 }
 
+export interface ApiOwnerOwner extends Schema.CollectionType {
+  collectionName: 'owners';
+  info: {
+    singularName: 'owner';
+    pluralName: 'owners';
+    displayName: 'Owner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    NameRu: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::owner.owner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::owner.owner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiParkPark extends Schema.CollectionType {
+  collectionName: 'parks';
+  info: {
+    singularName: 'park';
+    pluralName: 'parks';
+    displayName: 'park';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    NameRu: Attribute.String;
+    description: Attribute.Text;
+    polygon: Attribute.JSON;
+    location: Attribute.Text;
+    area: Attribute.Decimal;
+    negative_impact: Attribute.Text;
+    cadastres: Attribute.Relation<
+      'api::park.park',
+      'oneToMany',
+      'api::cadastre.cadastre'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::park.park', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::park.park', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRbObjectRbObject extends Schema.CollectionType {
   collectionName: 'rb_objects';
   info: {
@@ -888,6 +987,11 @@ export interface ApiRbObjectRbObject extends Schema.CollectionType {
       'api::rb-object.rb-object',
       'oneToOne',
       'api::status.status'
+    >;
+    parks: Attribute.Relation<
+      'api::rb-object.rb-object',
+      'oneToMany',
+      'api::park.park'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -956,8 +1060,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::cadastre.cadastre': ApiCadastreCadastre;
       'api::family.family': ApiFamilyFamily;
       'api::order.order': ApiOrderOrder;
+      'api::owner.owner': ApiOwnerOwner;
+      'api::park.park': ApiParkPark;
       'api::rb-object.rb-object': ApiRbObjectRbObject;
       'api::status.status': ApiStatusStatus;
     }
