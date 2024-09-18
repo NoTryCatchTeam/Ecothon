@@ -11,10 +11,10 @@
 
     <div class="infos">
 
-        <div class="container-fluid object">
+        <div class="container-fluid info-container filters">
         </div>
 
-        <div class="container-fluid park">
+        <div class="container-fluid info-container park">
 
             <div class="header">
                 <h5>Карточка парка</h5>
@@ -33,18 +33,31 @@
                 </div>
             </div>
 
-            <h6 style="font-weight: 600">Национальный парк Лосиный остров</h6>
+            <div class="park-section about @(_selectedMenuItem == 0 ? "active" : "")">
+                <h6 style="font-weight: 600">Национальный парк Лосиный остров</h6>
 
-            <div class="image">
-                <img src="images/image_park.png" alt="Park">
+                <div class="image">
+                    <img src="images/image_park.png" alt="Park">
+                </div>
+
+                <p class="coordinates">Координаты <span style="font-weight: 500">55.862095, 37.825685</span></p>
             </div>
 
-            <p class="coordinates">Координаты <span style="font-weight: 500">55.862095, 37.825685</span></p>
-        </div>
+            <div class="park-section registry @(_selectedMenuItem == 1 ? "active" : "")">
+                @foreach (var registryObject in _registryObjects)
+                {
+                    <div class="registry-item">
+                        <img class="registry-item-image" src="images/image_gornostai_small.png" alt="Gornostai"/>
+                        <h6 class="registry-item-name">@registryObject.Name</h6>
+                        <p class="registry-item-specie">@registryObject.Specie</p>
+                    </div>
+                }
+            </div>
 
-        <div class="container-fluid filters">
-        </div>
+            <div class="container-fluid info-container object">
+            </div>
 
+        </div>
     </div>
 
 </div>
@@ -52,6 +65,7 @@
 @code
 {
     private int _selectedMenuItem;
+    private IEnumerable<RegistryObject> _registryObjects;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -61,8 +75,26 @@
         }
     }
 
+    protected override void OnInitialized()
+    {
+        _registryObjects =
+        [
+            new RegistryObject { Name = "Горностай", Specie = "Mustela erminea Linnaeus" },
+            new RegistryObject { Name = "Брат Горностая", Specie = "Mustela erminea Linnaeus 1" },
+            new RegistryObject { Name = "Сестра Горностая", Specie = "Mustela erminea Linnaeus 2" },
+            new RegistryObject { Name = "Сват Горностая", Specie = "Mustela erminea Linnaeus 3" },
+        ];
+    }
+
     private void OnMenuItemClicked(int item)
     {
         _selectedMenuItem = item;
+    }
+
+    private class RegistryObject
+    {
+        public string Name { get; set; }
+
+        public string Specie { get; set; }
     }
 }
