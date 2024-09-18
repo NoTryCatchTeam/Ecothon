@@ -1,123 +1,82 @@
 @inject IJSRuntime JS
 
 <div class="container-fluid info-container filters animate__animated animate__fadeInRight">
-        
-        <div class="filters-content">
-            
-            <div class="title-container">
-                <h5>Фильтр</h5>
-                @if (_foundedObjects != null)
-                {
-                    <p class="info-label">
-                        <span class="info-label">найдено: </span>
-                        <span class="indicator-label">@_foundedObjects.Length</span>
-                    </p>
-                }
+
+    <div style="display: flex; flex-flow: column">
+        <h5>Фильтр</h5>
+
+        <div class="filter-form-section">
+            <label for="park" class="filter-form-label">Парк:</label>
+
+            <div class="filter-form-select-container">
+                <select id="park" name="options" disabled>
+                    <option value="" disabled selected>Выберите</option>
+                </select>
             </div>
-            <div class="filter-form-section">
-                <label for="park" class="filter-form-label">Парк:</label>
-    
-                <div class="filter-form-select-container">
-                    <select id="park" name="options">
-                        <option value="" disabled selected class="filter-form-select-option">Выберите</option>
-                        <option value="option1" class="filter-form-select-option">Option 1</option>
-                        <option value="option2" class="filter-form-select-option">Option 2</option>
-                        <option value="option3" class="filter-form-select-option">Option 3</option>
-                        <option value="option4" class="filter-form-select-option">Option 4</option>
-                    </select>
-                </div>
-    
-                <div class="tags-container">
-                    <div class="btn tag">
-                        <p class="tag-text">Парк 1</p>
-                        <img src="images/ic_delete.svg" width="16" height="16" alt="Delete"/>
-                    </div>
-                    <div class="btn tag">
-                        <p class="tag-text">Парк 2</p>
-                        <img src="images/ic_delete.svg" width="16" height="16" alt="Delete"/>
-                    </div>
+
+            <div class="tags-container">
+                <div class="tag">
+                    <p class="tag-text">Москворецкий природно-ист... парк</p>
+                    <img src="images/ic_delete.svg" width="16" height="16" alt="Delete"/>
                 </div>
             </div>
-    
-            <div class="separator" style="margin-top: 16px"/>
-    
-            <div class="filter-form-section">
-                <label for="type" class="filter-form-label">Тип:</label>
-    
-                <div class="filter-form-select-container">
-                    <select id="type" name="options">
-                        <option value="" disabled selected class="filter-form-select-option">Выберите</option>
-                        <option value="option1" class="filter-form-select-option">Option 1</option>
-                        <option value="option2" class="filter-form-select-option">Option 2</option>
-                        <option value="option3" class="filter-form-select-option">Option 3</option>
-                        <option value="option4" class="filter-form-select-option">Option 4</option>
-                    </select>
+        </div>
+
+        <div class="separator" style="margin-top: 16px"></div>
+
+        <div class="filter-form-section">
+            <label for="type" class="filter-form-label">Тип:</label>
+
+            <div class="filter-form-select-container">
+                <select id="type" name="options" disabled>
+                    <option value="" disabled selected>Животные</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="filter-form-section">
+            <label for="class" class="filter-form-label">Класс:</label>
+
+            <div class="filter-form-select-container">
+                <select id="class" name="options" disabled>
+                    <option value="" disabled selected>Млекопитающие — MAMMALIA</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="filter-form-section">
+            <label for="squard" class="filter-form-label">Отряд:</label>
+
+            <div class="filter-form-select-container">
+                <select id="squard" name="options" disabled>
+                    <option value="" disabled selected>Хищные — Carnivora</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="filter-form-section">
+            <label for="kind" class="filter-form-label">Виды:</label>
+
+            <div class="filter-form-select-container">
+                <select id="kind" name="options" disabled>
+                    <option value="" disabled selected>Выберите</option>
+                </select>
+            </div>
+
+            <div class="tags-container">
+                <div class="tag">
+                    <p class="tag-text">Горностай</p>
+                    <img src="images/ic_delete.svg" width="16" height="16" alt="Delete"/>
                 </div>
             </div>
-    
-            <div class="filter-form-section">
-                <label for="class" class="filter-form-label">Класс:</label>
-    
-                <div class="filter-form-select-container">
-                    <select id="class" name="options">
-                        <option value="" disabled selected class="filter-form-select-option">Выберите</option>
-                        <option value="option1" class="filter-form-select-option">Option 1</option>
-                        <option value="option2" class="filter-form-select-option">Option 2</option>
-                        <option value="option3" class="filter-form-select-option">Option 3</option>
-                        <option value="option4" class="filter-form-select-option">Option 4</option>
-                    </select>
-                </div>
-            </div>
-    
-            <div class="filter-form-section">
-                <label for="squard" class="filter-form-label">Отряд:</label>
-    
-                <div class="filter-form-select-container">
-                    <select id="squard" name="options">
-                        <option value="" disabled selected class="filter-form-select-option">Выберите</option>
-                        <option value="option1" class="filter-form-select-option">Option 1</option>
-                        <option value="option2" class="filter-form-select-option">Option 2</option>
-                        <option value="option3" class="filter-form-select-option">Option 3</option>
-                        <option value="option4" class="filter-form-select-option">Option 4</option>
-                    </select>
-                </div>
-            </div>
-    
-            <div class="filter-form-section">
-                <label for="kind" class="filter-form-label">Виды:</label>
-    
-                <div class="filter-form-select-container">
-                    <select id="kind" name="options">
-                        <option value="" disabled selected class="filter-form-select-option">Выберите</option>
-                        <option value="option1" class="filter-form-select-option">Option 1</option>
-                        <option value="option2" class="filter-form-select-option">Option 2</option>
-                        <option value="option3" class="filter-form-select-option">Option 3</option>
-                        <option value="option4" class="filter-form-select-option">Option 4</option>
-                    </select>
-                </div>
-    
-                <div class="tags-container">
-                    <div class="btn tag">
-                        <p class="tag-text">Горностай 1</p>
-                        <img src="images/ic_delete.svg" width="16" height="16" alt="Delete"/>
-                    </div>
-                    <div class="btn tag">
-                        <p class="tag-text">Горностай 2</p>
-                        <img src="images/ic_delete.svg" width="16" height="16" alt="Delete"/>
-                    </div>
-                </div>
-            </div>
-                    
+        </div>
+    </div>
+
+    <div style="display: flex; flex-flow: column">
+        <div class="warning">
+            <p>В рамках хакатона фильтр работает на тестовых данных. Выбор фильтров недоступен</p>
         </div>
 
         <button type="submit" class="btn btn-secondary filters-submit">Сбросить фильтр</button>
     </div>
-
-@code
-{
-    private MapObject[] _foundedObjects;
-
-    public class MapObject
-    {
-    }
-}
+</div>

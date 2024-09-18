@@ -1,4 +1,5 @@
 @import 'base/var';
+@import 'base/mixins';
 
 .map {
     position: absolute;
@@ -8,60 +9,67 @@
     right: 0;
 }
 
-.tags-container {
-    display: flex;
-    margin-top: 8px;
-    gap: 8px;
-}
-.tag {
-    padding: 2px 8px;
-    display: flex;
-    align-items: center;
-    border-radius: 6px;
-    gap: 4px;
-    background: $color-indicator;
-}
-.tag-text {
-    @include body-s;
-    color: $color-text-primary-inverse;
-}
-.filter-form-label {
-    @include body-s;
-    color: $color-gray-6;
-}
-.filter-form-select-container
-{
-    width: 100%;
-    background: $color-select;
-    border-radius: 8px;
-    padding: 6px 12px;
-}
-.filter-form-select-container select
-{
-    width: 100%;
-}
-.filter-form-select-option
-{
-    @include body-m;
-}
-.filter-form-section
-{
-    padding-top: 24px;
-}
-.filter-form-section .filter-form-label
-{
-    margin-bottom: 4xp;
-}
-.separator{
-    height: 1px;
-    background: $color-background-globe;
-}
-.filters-content {
-    flex: 1;
-}
+.filters {
 
-.filters-submit
-{
-    width: 100%;
-    padding: 6px 0px;
+    .tags-container {
+        display: flex;
+        margin-top: 8px;
+        gap: 8px;
+
+        .tag {
+            padding: 2px 8px;
+            display: flex;
+            align-items: center;
+            border-radius: 6px;
+            gap: 4px;
+            background: $color-indicator;
+        }
+
+        .tag-text {
+            @include body-s;
+            color: $color-text-primary-inverse;
+        }
+    }
+
+    .filter-form-label {
+        @include body-s;
+        color: $color-gray-60;
+    }
+
+    .filter-form-select-container {
+        width: 100%;
+        background: $color-select;
+        border-radius: 8px;
+        padding: 6px 12px;
+    }
+
+    .filter-form-select-container select {
+        width: 100%;
+    }
+
+    .filter-form-section {
+        padding-top: 24px;
+    }
+
+    .filter-form-section .filter-form-label {
+        margin-bottom: 4xp;
+    }
+
+    .separator {
+        height: 1px;
+        background: $color-background-globe;
+    }
+
+    .warning {
+        border-radius: 12px;
+        color: $color-text-link;
+        background-color: rgba(238, 30, 35, 0.05);
+        padding: 8px;
+        margin-top: 42px;
+    }
+
+    .filters-submit {
+        padding: 6px 0;
+        margin-top: 24px;
+    }
 }
