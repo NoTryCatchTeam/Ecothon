@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rb_objects",
+  "info": {
+    "singularName": "rb-object",
+    "pluralName": "rb-objects",
+    "displayName": "rb_object"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "NameRu": {
+      "type": "string"
+    },
+    "NameLat": {
+      "type": "string"
+    }
+  }
+}

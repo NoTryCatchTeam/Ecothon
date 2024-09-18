@@ -2,7 +2,7 @@ name: Docker CI Client
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths:
       - 'Ecothon.Web/**'
       - 'Ecothon.Dtos/**'

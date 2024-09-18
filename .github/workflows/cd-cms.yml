@@ -1,0 +1,37 @@
+name: Deploy CMS
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Docker CI CMS]
+    types: [completed]
+jobs:
+    cd:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+            # Make sure the @v0.9.0 matches the current version of the action
+        - uses: webfactory/ssh-agent@v0.9.0
+          with:
+            ssh-private-key: ${{ secrets.SSH_KEY }}
+        - name: deploy CMS
+          run: |
+                ssh sakolch3@${{ secrets.SSH_HOST }}
+                docker stop cms && docker rm cms
+                docker rmi swamp1820/ecothon-cms
+                docker pull swamp1820/ecothon-cms:latest
+                docker run --name cms -d --restart always -p 8080:1337 \
+                -v /upload:/opt/app/public/uploads \
+                -e "ADMIN_JWT_SECRET=${{ secrets.ADMIN_JWT_SECRET }}" \
+                -e "API_TOKEN_SALT=${{ secrets.API_TOKEN_SALT }}" \
+                -e "APP_KEYS=${{ secrets.APP_KEYS }}" \
+                -e "DATABASE_CLIENT=postgres" \
+                -e "DATABASE_HOST=${{ secrets.DATABASE_HOST }}" \
+                -e "DATABASE_NAME=${{ secrets.DATABASE_NAME }}" \
+                -e "DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}" \
+                -e "DATABASE_PORT=6432" \
+                -e "DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }}" \
+                -e "FORCE_MIGRATION=false" \
+                -e "JWT_SECRET=${{ secrets.JWT_SECRET }}" \
+                swamp1820/ecothon-cms 
+                

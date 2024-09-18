@@ -2,7 +2,7 @@ name: Docker CI CMS
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - 'cms/**'
 jobs:
