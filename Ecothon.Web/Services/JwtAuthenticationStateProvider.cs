@@ -24,7 +24,7 @@ public class JwtAuthenticationStateProvider : AuthenticationStateProvider, IAuth
     {
         _localStorageService = localStorageService;
         _logger = logger;
-        _httpClient = httpClientFactory.CreateClient("Local");
+        _httpClient = httpClientFactory.CreateClient(HttpClientConstants.HttpClientNames.API);
     }
 
     public async Task<bool> SignInAsync(string email, string password)
@@ -111,6 +111,11 @@ public class JwtAuthenticationStateProvider : AuthenticationStateProvider, IAuth
             var localUser = await _localStorageService.GetItemAsync<LocalStorageUser>(LocalStorageConstants.USER_INFO);
             var accessToken = await _localStorageService.GetItemAsStringAsync(LocalStorageConstants.ACCESS_TOKEN);
             var refreshToken = await _localStorageService.GetItemAsStringAsync(LocalStorageConstants.REFRESH_TOKEN);
+
+            if (localUser == null || accessToken == null || refreshToken == null)
+            {
+                return false;
+            }
 
             var signInResponse = await _httpClient.PostAsJsonAsync(
                 "auth/refresh",
