@@ -24,6 +24,9 @@
         grid-column: 3/3;
         grid-row: 1/1;
         padding-bottom: 32px;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
     }
 
     .park {
