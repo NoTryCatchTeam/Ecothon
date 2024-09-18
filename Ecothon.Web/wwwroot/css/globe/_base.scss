@@ -1,3 +1,6 @@
+@import '../base/var';
+@import '../base/mixins';
+
 body {
     font-family: $font-body;
     @include body-m;
@@ -32,6 +35,10 @@ h5 {
 
 h6 {
     @include header-6;
+}
+
+.h8 {
+    @include header-8;
 }
 
 input {
