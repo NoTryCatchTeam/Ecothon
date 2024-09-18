@@ -1,7 +1,28 @@
 @page "/map"
 @inject IJSRuntime JS
 
-<div id="map" style="height: 100vh;"></div>
+<link href="css/map.scss" rel="stylesheet" />
+
+<div class="map-container">
+
+    <div id="map" class="map"></div>
+
+    <div class="map-instruments">
+        <EditForm FormName="FilterMapForm">
+            <div>
+                <label for="input_email">Email</label>
+                <input type="text" id="input_email" placeholder="Email">
+            </div>
+            <div >
+                <label for="input_password">Password</label>
+                <input type="password" id="input_password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </EditForm>
+    </div>
+
+</div>
+
 
 @code
 {
