@@ -276,6 +276,9 @@ input {
 .nav .links .btn:hover a {
   border-bottom: 2px solid #ee1e23;
 }
+.nav .links .btn a.active {
+  border-bottom: 2px solid #ee1e23;
+}
 
 .accent {
   color: #ee1e23;
