@@ -9,14 +9,14 @@
     border-radius: 8px;
     transition: $transition;
     cursor: pointer;
-    
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
     &.btn-icon {
         display: inline-flex;
         align-items: center;
         column-gap: 10px;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
     }
 
     &:hover {
@@ -30,6 +30,7 @@
         border: 1px solid darken($color-background-globe, 9);
         transition: $transition;
     }
+    
     &.btn-secondary {
         background-color: $color-background-light;
         border: 1px solid $color-indicator;
