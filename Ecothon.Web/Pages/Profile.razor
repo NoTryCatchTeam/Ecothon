@@ -1,0 +1,20 @@
+@page "/profile"
+@using Microsoft.AspNetCore.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@attribute [Authorize]
+
+<PageTitle>Профиль</PageTitle>
+
+<h3>@_email</h3>
+
+@code {
+
+    private string _email;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _email = (await AuthenticationStateProvider.GetAuthenticationStateAsync())?.User.Identity?.Name;
+        StateHasChanged();
+    }
+
+}
