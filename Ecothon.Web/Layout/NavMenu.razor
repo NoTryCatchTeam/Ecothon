@@ -1,28 +1,29 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Ecothon.Web</a>
-        <button title="Navigation menu" class="navbar-toggler">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+﻿<div class="container-fluid nav">
+    <div>
+        <h5 class="accent" style="text-transform: uppercase">Красная книга</h5>
+        <h6 class="h8" style="margin-top: -2px; text-transform: uppercase">Города Москвы</h6>
     </div>
-</div>
-
-<div class="nav-scrollable">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+    
+    <div class="links">
+        <div class="btn">
+            <NavLink href="" Match="NavLinkMatch.All" ActiveClass="active">
+                Карта объектов
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+        <div class="btn">
+            <NavLink href="/registry" ActiveClass="active">
+                Реестр объектов
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+        <div class="btn">
+            <NavLink href="/education" Match="NavLinkMatch.All" ActiveClass="active">
+                Образование
             </NavLink>
         </div>
-    </nav>
+    </div>
+    
+    <div class="btn btn-icon">
+        <img src="images/ic_profile.svg" width="24" height="24" alt="Profile icon" />
+        <p>Личный кабинет</p>
+    </div>
 </div>
