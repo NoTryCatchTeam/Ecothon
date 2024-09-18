@@ -3,21 +3,66 @@
 
 <PageTitle>Главная</PageTitle>
 
-<div id="map" style="height: 100vh;"></div>
+@* <div id="map" style="height: 100vh;"></div> *@
 
 <div class="container-fluid">
 
     <NavMenu/>
 
+    <div class="infos">
+
+        <div class="container-fluid object">
+        </div>
+
+        <div class="container-fluid park">
+
+            <div class="header">
+                <h5>Карточка парка</h5>
+                <div class="btn">
+                    <img src="images/ic_close.svg" width="24" height="24" alt="Close park info"/>
+                </div>
+            </div>
+
+            <div class="menu">
+                <div class="btn @(_selectedMenuItem == 0 ? "active" : "")" @onclick="() => OnMenuItemClicked(0)">
+                    <p>О парке</p>
+                </div>
+
+                <div class="btn @(_selectedMenuItem == 1 ? "active" : "")" @onclick="() => OnMenuItemClicked(1)">
+                    <p>Реестр объектов</p>
+                </div>
+            </div>
+
+            <h6 style="font-weight: 600">Национальный парк Лосиный остров</h6>
+
+            <div class="image">
+                <img src="images/image_park.png" alt="Park">
+            </div>
+
+            <p class="coordinates">Координаты <span style="font-weight: 500">55.862095, 37.825685</span></p>
+        </div>
+
+        <div class="container-fluid filters">
+        </div>
+
+    </div>
+
 </div>
 
 @code
 {
+    private int _selectedMenuItem;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await Js.InvokeVoidAsync("initializeMap");
         }
+    }
+
+    private void OnMenuItemClicked(int item)
+    {
+        _selectedMenuItem = item;
     }
 }
