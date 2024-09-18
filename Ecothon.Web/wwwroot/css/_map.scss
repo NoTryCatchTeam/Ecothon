@@ -13,6 +13,7 @@
     margin-top: 8px;
     gap: 8px;
 }
+
 .tag {
     padding: 2px 8px;
     display: flex;
@@ -21,47 +22,50 @@
     gap: 4px;
     background: $color-indicator;
 }
+
 .tag-text {
     @include body-s;
     color: $color-text-primary-inverse;
 }
+
 .filter-form-label {
     @include body-s;
-    color: $color-gray-6;
+    color: $color-gray-60;
 }
-.filter-form-select-container
-{
+
+.filter-form-select-container {
     width: 100%;
     background: $color-select;
     border-radius: 8px;
     padding: 6px 12px;
 }
-.filter-form-select-container select
-{
+
+.filter-form-select-container select {
     width: 100%;
 }
-.filter-form-select-option
-{
+
+.filter-form-select-option {
     @include body-m;
 }
-.filter-form-section
-{
+
+.filter-form-section {
     padding-top: 24px;
 }
-.filter-form-section .filter-form-label
-{
+
+.filter-form-section .filter-form-label {
     margin-bottom: 4xp;
 }
-.separator{
-    height: 1px;
-    background: $color-background-globe;
-}
+
 .filters-content {
     flex: 1;
+
+    .separator {
+        height: 1px;
+        background: $color-background-globe;
+    }
 }
 
-.filters-submit
-{
+.filters-submit {
     width: 100%;
     padding: 6px 0px;
 }

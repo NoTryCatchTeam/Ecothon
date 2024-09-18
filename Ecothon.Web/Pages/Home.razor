@@ -11,7 +11,7 @@
 
     <div class="infos">
 
-        <MapFilters />
+        <MapFilters/>
 
         <div class="container-fluid info-container park">
 
@@ -53,10 +53,52 @@
                 }
             </div>
 
-            <div class="container-fluid info-container object">
+        </div>
+
+        <div class="container-fluid info-container object">
+
+            <div class="header">
+                <h5>Карточка объекта</h5>
+                <div class="btn">
+                    <img src="images/ic_close.svg" width="24" height="24" alt="Close object info"/>
+                </div>
+            </div>
+
+            <div class="image">
+                <img src="images/image_gornostai.png" alt="Object">
+            </div>
+
+            <h6 style="font-size: 18px">Статус</h6>
+
+            <div class="status">
+
+                <p class="name" style="grid-column: 1/2; grid-row: 1/2">Категория:</p>
+                <p class="value" style="grid-column: 2/3; grid-row: 1/2">1</p>
+
+                <hr class="separator" style="grid-row: 2/3"/>
+
+                <p class="name" style="grid-column: 1/2; grid-row: 3/4">Распространение:</p>
+                <p class="value" style="grid-column: 2/3; grid-row: 3/4">Европа, Сибирь, Дальний Восток, Средняя Азия</p>
+
+                <hr class="separator" style="grid-row: 4/5"/>
+
+                <p class="name" style="grid-column: 1/2; grid-row: 5/6">Численность, Москва:</p>
+                <p class="value" style="grid-column: 2/3; grid-row: 5/6">редко, до 2012 г.</p>
+
+                <hr class="separator" style="grid-row: 6/7"/>
+
+                <p class="name" style="grid-column: 1/2; grid-row: 7/8">Численность, ТиНАО:</p>
+                <p class="value" style="grid-column: 2/3; grid-row: 7/8">&lt; 200 особей, 1990 г.</p>
+
+                <hr class="separator" style="grid-row: 8/9"/>
+
+                <p class="name" style="grid-column: 1/2; grid-row: 9/10">Особенности обитания:</p>
+                <p class="value" style="grid-column: 2/3; grid-row: 9/10">Полуоткрытые биотопы</p>
+
             </div>
 
         </div>
+
     </div>
 
 </div>
@@ -89,7 +131,7 @@
     {
         _selectedMenuItem = item;
     }
-    
+
     private class RegistryObject
     {
         public string Name { get; set; }
@@ -97,5 +139,4 @@
         public string Specie { get; set; }
     }
 
-    
 }
