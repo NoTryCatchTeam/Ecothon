@@ -5,6 +5,10 @@
 
 <div id="map" class="map"></div>
 
+<img id="map-polygon" src="images/image_polygon.svg" alt="polygon"
+     style="position: absolute; top: 50%; left: 40%"
+     @onclick="OnPolygonClickActionAsync"/>
+
 <div class="container-fluid main">
 
     <NavMenu/>
@@ -13,11 +17,11 @@
 
         <MapFilters/>
 
-        <div class="container-fluid info-container park">
+        <div class="container-fluid info-container park animate__animated animate__fadeInRight" style="@_parkDisplayStyle">
 
             <div class="header">
                 <h5>Карточка парка</h5>
-                <div class="btn">
+                <div class="btn" @onclick="OnCloseParkClickAction">
                     <img src="images/ic_close.svg" width="24" height="24" alt="Close park info"/>
                 </div>
             </div>
@@ -45,7 +49,7 @@
             <div class="park-section registry @(_selectedMenuItem == 1 ? "active" : "")">
                 @foreach (var registryObject in _registryObjects)
                 {
-                    <div class="registry-item">
+                    <div class="registry-item" @onclick="OnRegistryItemClickAction">
                         <img class="registry-item-image" src="images/image_gornostai_small.png" alt="Gornostai"/>
                         <h6 class="registry-item-name">@registryObject.Name</h6>
                         <p class="registry-item-specie">@registryObject.Specie</p>
@@ -55,11 +59,11 @@
 
         </div>
 
-        <div class="container-fluid info-container object">
+        <div class="container-fluid info-container object animate__animated animate__fadeInRight" style="@_objectDisplayStyle">
 
             <div class="header">
                 <h5>Карточка объекта</h5>
-                <div class="btn">
+                <div class="btn" @onclick="OnCloseObjectClickAction">
                     <img src="images/ic_close.svg" width="24" height="24" alt="Close object info"/>
                 </div>
             </div>
@@ -107,6 +111,10 @@
 {
     private int _selectedMenuItem;
     private IEnumerable<RegistryObject> _registryObjects;
+    private string _parkDisplayStyle;
+    private string _objectDisplayStyle;
+    private bool _parkOpened;
+    private bool _objectsOpened;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -118,6 +126,9 @@
 
     protected override void OnInitialized()
     {
+        ChangeParkDisplayStyle();
+        ChangeObjectDisplayStyle();
+
         _registryObjects =
         [
             new RegistryObject { Name = "Горностай", Specie = "Mustela erminea Linnaeus" },
@@ -132,6 +143,42 @@
         _selectedMenuItem = item;
     }
 
+    private async Task OnPolygonClickActionAsync()
+    {
+        _parkOpened = true;
+        ChangeParkDisplayStyle();
+
+        // Api request, update _registryObjects
+    }
+
+    private void OnRegistryItemClickAction()
+    {
+        _objectsOpened = true;
+        ChangeObjectDisplayStyle();
+    }
+    
+    private void OnCloseParkClickAction()
+    {
+        _parkOpened = false;
+        ChangeParkDisplayStyle();
+    }
+    
+    private void OnCloseObjectClickAction()
+    {
+        _objectsOpened = false;
+        ChangeObjectDisplayStyle();
+    }
+
+    private void ChangeParkDisplayStyle()
+    {
+        _parkDisplayStyle = $"display: {(_parkOpened ? "block" : "none")}";
+    }
+
+    private void ChangeObjectDisplayStyle()
+    {
+        _objectDisplayStyle = $"display: {(_objectsOpened ? "flex" : "none")}";
+    }
+
     private class RegistryObject
     {
         public string Name { get; set; }
@@ -139,4 +186,5 @@
         public string Specie { get; set; }
     }
 
+    
 }

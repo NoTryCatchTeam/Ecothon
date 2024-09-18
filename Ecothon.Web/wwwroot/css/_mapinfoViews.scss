@@ -34,6 +34,7 @@
         margin-left: -24px;
         margin-right: 24px;
         display: none;
+        z-index: 1;
 
         .header {
             display: inline-flex;
@@ -103,6 +104,10 @@
                     grid-template-rows: auto auto;
                     column-gap: 12px;
                     margin-bottom: 16px;
+                    cursor: pointer;
+                    -webkit-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
 
                     .registry-item-image {
                         grid-column: 1/2;
@@ -130,9 +135,9 @@
         width: 680px;
         margin-left: -48px;
         margin-right: 48px;
-        display: flex;
         flex-flow: column;
         display: none;
+        z-index: 2;
 
         .header {
             display: inline-flex;
