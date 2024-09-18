@@ -1,0 +1,29 @@
+@import 'base/var';
+
+.nav {
+    display: inline-flex;
+    border-radius: 12px;
+    background: $color-background-light;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
+    justify-content: space-between;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 12px;
+
+    .links {
+        display: inline-flex;
+        align-items: center;
+
+        .btn {
+            border-radius: 0;
+            background-color: transparent;
+            border: none;
+
+            &:hover {
+                a {
+                    border-bottom: 2px solid $color-accent;
+                }
+            }
+        }
+    }
+}
