@@ -141,11 +141,11 @@ body {
   letter-spacing: -0.17px;
   font-weight: 400;
   font-style: normal;
-  color: #000;
+  color: #141414;
 }
 
 a {
-  color: #000;
+  color: #141414;
   cursor: pointer;
 }
 
@@ -199,11 +199,11 @@ h6 {
 }
 
 input {
-  border: 1px solid #000;
+  border: 1px solid #e0e5eb;
   border-radius: 8px;
   padding: 7px 12px;
   width: 100%;
-  color: #000;
+  color: #141414;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: -0.17px;
@@ -238,28 +238,29 @@ input {
   transition: all 0.25s ease;
 }
 .btn.btn-primary {
-  background-color: #009B65;
-  border: 1px solid #009B65;
+  background-color: #ee1e23;
+  border: 1px solid #ee1e23;
   color: #fff;
   transition: all 0.25s ease;
 }
 .btn.btn-primary:hover {
-  background-color: #00aa6f;
-  border: 1px solid #00aa6f;
+  background-color: #ef2c31;
+  border: 1px solid #ef2c31;
   transition: all 0.25s ease;
 }
 .btn.btn-primary:active {
-  background-color: #008c5b;
-  border: 1px solid #008c5b;
+  background-color: #eb1217;
+  border: 1px solid #eb1217;
   transition: all 0.25s ease;
 }
 
 .nav {
   display: inline-flex;
   border-radius: 12px;
-  background: #fff;
+  background: white;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
   justify-content: space-between;
+  align-items: center;
   padding-top: 12px;
   padding-bottom: 12px;
   margin-top: 12px;

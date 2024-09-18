@@ -1,16 +1,15 @@
 //var
 $color-background-globe: #E0E5EB;
-$color-background-light: #fff;
-$color-background-dark: #000;
-$color-background-border: #000;
-$color-background-accent: #009B65;
+$color-background-light: rgba(255, 255, 255, 1);
+$color-background-dark: rgba(20, 20, 20, 1);
+$color-background-border: rgba(224, 229, 235, 1);
+$color-background-accent: rgba(238, 30, 35, 1);
 
-$color-text-primary: #000;
-$color-text-secondary: #000;
-$color-text-link: #000;
+$color-text-primary: rgba(20, 20, 20, 1);
+$color-text-secondary: rgba(114, 114, 114, 1);
+$color-text-link: rgba(238, 30, 35, 1);
 $color-text-primary-inverse: #fff;
 
-$color-accent: rgba(238, 30, 35, 1);
 $color-gray-05: rgba(20, 20, 20, 0.05);
 
 //fonts
