@@ -1,5 +1,4 @@
 @page "/map"
-@inject HttpClient Http
 @inject IJSRuntime JS
 
 <div id="map" style="width: 100%; height: 100%;"></div>
@@ -10,7 +9,7 @@
     {
         if (firstRender)
         {
-            await JS.InvokeVoidAsync("initializeMap", await Http.GetStringAsync("json/map_customization.json"));
+            await JS.InvokeVoidAsync("initializeMap");
         }
     }
 }
