@@ -132,7 +132,10 @@
         {
             var park = await StrapiApiService.GetParkItemAsync();
 
-            await Js.InvokeVoidAsync("addPolygonOnMap", park.Polygon.Geometries.SelectMany(g => g.Coordinates).SelectMany(c => c).Select(x => x.Reverse()).ToArray(), park.Name, park.Name, _objRef);
+            foreach (var polygon in park.Polygon.Geometries)
+            {
+                await Js.InvokeVoidAsync("addPolygonOnMap", polygon.Coordinates.SelectMany(c => c).Select(x => x.Reverse()).ToArray(), park.Name, park.Name, _objRef);
+            }
         }
         catch
         {
