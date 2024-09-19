@@ -15,16 +15,15 @@ public class StrapiApiService : IStrapiApiService
         _httpClient = httpClientFactory.CreateClient(HttpClientConstants.HttpClientNames.STRAPI_API);
     }
 
-    // We now get only park with id = 1
-    public async Task<ParkItemResponse> GetParkItemAsync()
+    public async Task<IEnumerable<ParkItemResponse>> GetParksAsync()
     {
-        var parkResponse = await _httpClient.GetAsync("parks/1");
+        var parkResponse = await _httpClient.GetAsync("parks");
 
         parkResponse.EnsureSuccessStatusCode();
 
-        var park = JsonHelpers.Deserialize<BaseStrapiResponse<StrapiItemResponse<ParkItemResponse>>>(await parkResponse.Content.ReadAsStringAsync());
+        var park = JsonHelpers.Deserialize<BaseStrapiResponse<IEnumerable<StrapiItemResponse<ParkItemResponse>>>>(await parkResponse.Content.ReadAsStringAsync());
 
-        return park.Data.Item;
+        return park.Data.Select(d => d.Item).ToArray();
     }
 
     public async Task<IEnumerable<HabitantItemResponse>> GetHabitantsAsync()
