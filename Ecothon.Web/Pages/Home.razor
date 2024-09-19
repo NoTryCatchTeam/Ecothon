@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject IJSRuntime Js
+@inject IStrapiApiService StrapiApiService
 
 <PageTitle>Карта объектов</PageTitle>
 
@@ -120,27 +121,30 @@
         ChangeParkDisplayStyle();
         StateHasChanged();
 
-    // Api request, update _registryObjects
+        // Api request, update _registryObjects
     }
 
     public void Dispose() => _objRef?.Dispose();
 
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var park = await StrapiApiService.GetParkItemAsync();
+
+            await Js.InvokeVoidAsync("addPolygonOnMap", park.Polygon.Geometries.SelectMany(g => g.Coordinates).SelectMany(c => c).Select(x => x.Reverse()).ToArray()s, park.Name, park.Name, _objRef);
+        }
+        catch
+        {
+            //
+        }
+    }
+    
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await Js.InvokeVoidAsync("initializeMap", 55.75, 37.62);
-            
-            var coordinates = new[]
-            {
-                new[] { 55.75, 37.80 },
-                new[] { 55.75, 37.60 },
-                new[] { 55.70, 37.60 },
-                new[] { 55.70, 37.80 },
-                new[] { 55.75, 37.80 }
-            };
-            
-            await Js.InvokeVoidAsync("addPolygonOnMap", coordinates, "name", "id", _objRef);
         }
     }
 
