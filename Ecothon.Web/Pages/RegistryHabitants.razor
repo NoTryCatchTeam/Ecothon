@@ -68,11 +68,14 @@
                             <p style="grid-row: 2/3">Куньи (Mustelidae)</p>
                         </div>
 
-                        <div class="col-3">
-                            <img src="images/ic_warning.svg" alt="warning"/>
+                        @if (_habitants[i].Status?.Data?.Item?.Status == 1)
+                        {
+                            <div class="col-3">
+                                <img src="images/ic_warning.svg" alt="warning"/>
 
-                            <p style="font-size: 13px">Под угрозой исчезновения</p>
-                        </div>
+                                <p style="font-size: 13px">Под угрозой исчезновения</p>
+                            </div>
+                        }
 
                         <div class="col-4">
                             <p style="grid-row: 1/2">Дата создания</p>
