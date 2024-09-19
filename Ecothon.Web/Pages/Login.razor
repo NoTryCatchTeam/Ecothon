@@ -35,6 +35,7 @@
     private async Task LoginAsync()
     {
         var signInResult = await AuthService.SignInAsync(Form.Email, Form.Password);
+        _ = await AuthenticationStateProvider.GetAuthenticationStateAsync();
 
         if (signInResult)
         {

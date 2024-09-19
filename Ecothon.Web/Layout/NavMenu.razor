@@ -1,4 +1,9 @@
-﻿<div class="container-fluid nav">
+﻿@using Ecothon.Web.Definitions.LocalStorage
+@using Ecothon.Web.Definitions.Contants
+@using Blazored.LocalStorage
+@inject ILocalStorageService LocalStorageService
+
+<div class="container-fluid nav">
     <div>
         <h5 class="accent" style="text-transform: uppercase">Красная книга</h5>
         <h6 class="h8" style="margin-top: -2px; text-transform: uppercase">Города Москвы</h6>
@@ -25,8 +30,26 @@
     <NavLink href="/profile">
         <div class="btn btn-icon">
             <img src="images/ic_profile.svg" width="24" height="24" alt="Profile icon"/>
-            Личный кабинет
+            @if (_email != null)
+            {
+                <p>@_email</p>
+            }
+            else
+            {
+                <p>Личный кабинет</p>
+            }
         </div>
     </NavLink>
 
 </div>
+
+@code
+{
+    private string _email;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var localUser = await LocalStorageService.GetItemAsync<LocalStorageUser>(LocalStorageConstants.USER_INFO);
+        _email = localUser?.Email;
+    }
+}

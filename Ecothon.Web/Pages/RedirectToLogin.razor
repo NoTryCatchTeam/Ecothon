@@ -3,6 +3,6 @@
 @code {
 
     protected override void OnInitialized()
-        => NavigationManager.NavigateTo($"/login?redirect-uri={Uri.EscapeDataString(NavigationManager.Uri)}", true);
+        => NavigationManager.NavigateTo($"/login?redirect-uri={Uri.EscapeDataString(NavigationManager.BaseUri)}", true);
 
 }
