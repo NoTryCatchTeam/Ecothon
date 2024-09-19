@@ -40,9 +40,9 @@
     <NavLink href="/profile">
         <div class="btn btn-icon">
             <img src="images/ic_profile.svg" width="24" height="24" alt="Profile icon"/>
-            @if (_email != null)
+            @if (_name != null)
             {
-                <p>@_email</p>
+                <p>@_name</p>
             }
             else
             {
@@ -55,11 +55,12 @@
 
 @code
 {
-    private string _email;
+    private string _name;
 
     protected override async Task OnInitializedAsync()
     {
         var localUser = await LocalStorageService.GetItemAsync<LocalStorageUser>(LocalStorageConstants.USER_INFO);
-        _email = localUser?.Email;
+
+        _name = localUser != null ? "Иван Петров" : null;
     }
 }
