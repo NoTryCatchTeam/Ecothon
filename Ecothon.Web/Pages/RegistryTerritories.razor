@@ -1,17 +1,100 @@
 @page "/registry-territories"
+@using Ecothon.Web.Definitions.Strapi.Responses
+@inject IStrapiApiService StrapiApiService
+@inject NavigationManager NavigationManager
 
 <PageTitle>Реестр территорий</PageTitle>
 
-<div class="container-fluid main">
+<div class="container-fluid main page-registry-territories" style="pointer-events: auto">
 
     <NavMenu/>
 
-    <h3>Реестр территорий</h3>
+    <h3 style="margin-top: 32px; margin-left: 24px">Реестр территорий</h3>
+
+    <div class="container-fluid page-content">
+
+        <div class="toolbar">
+
+            <div class="toolbar-left">
+                <div class="btn active">
+                    <img src="images/ic_list.svg" alt="list"/>
+                </div>
+                <div class="btn">
+                    <img src="images/ic_grid.svg" alt="list"/>
+                </div>
+            </div>
+
+            <div class="toolbar-right">
+                <div class="toolbar-tool search">
+                    <img src="images/ic_search.svg" alt="list"/>
+                    <p>Искать по реестру</p>
+                </div>
+                <div class="toolbar-tool sort">
+                    <img src="images/ic_sort.svg" alt="list"/>
+                    <p>Сортировать</p>
+                </div>
+                <div class="toolbar-tool filter">
+                    <img src="images/ic_filter.svg" alt="list"/>
+                    <p>Фильтровать</p>
+                </div>
+            </div>
+        </div>
+
+        @if (_parks == null)
+        {
+            <p>
+                <em>Loading...</em>
+            </p>
+        }
+        else
+        {
+            <div class="list">
+                @for (var i = 0; i < _parks.Length; i++)
+                {
+                    var listNum = i;
+                    <div class="list-item" @onclick="() => OnTerritoryClickAction(listNum)">
+                        <div class="col-1">
+                            <div style="grid-column: 1/2; grid-row: 1/3">
+                                <img style="border-radius: 6px; object-fit: cover; height: 60px" src="images/image_park.png" alt=""/>
+                            </div>
+
+                            <h6 style="font-weight: 600; grid-column: 2/3; grid-row: 1/2">@_parks[i].Name</h6>
+
+                            <p style="grid-column: 2/3; grid-row: 2/3">@_parks[i].Location</p>
+                        </div>
+                    </div>
+
+                    @if (i + 1 < _parks.Length)
+                    {
+                        <hr style="background-color: rgba(224, 229, 235, 1); height: 1px"/>
+                    }
+                }
+            </div>
+        }
+
+    </div>
 
 </div>
 
 @code {
+    private ParkItemResponse[] _parks;
 
-    
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _parks = (await StrapiApiService.GetParksAsync()).ToArray();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
 
+            throw;
+        }
+    }
+
+    private void OnTerritoryClickAction(int i)
+    {
+        NavigationManager.NavigateTo($"/registry-territories/{i}");
+    }
 }
