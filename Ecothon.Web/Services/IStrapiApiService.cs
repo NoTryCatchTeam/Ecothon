@@ -5,4 +5,6 @@ namespace Ecothon.Web.Services;
 public interface IStrapiApiService
 {
     Task<ParkItemResponse> GetParkItemAsync();
+
+    Task<IEnumerable<HabitantItemResponse>> GetHabitantsAsync();
 }

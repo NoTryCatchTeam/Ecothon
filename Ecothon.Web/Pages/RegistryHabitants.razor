@@ -1,4 +1,6 @@
 @page "/registry-habitants"
+@using Ecothon.Web.Definitions.Strapi.Responses
+@inject IStrapiApiService StrapiApiService
 
 <PageTitle>Реестр растений и животных</PageTitle>
 
@@ -7,11 +9,51 @@
     <NavMenu/>
     
     <h3>Реестр растений и животных</h3>
+    
+    @if (_habitants == null)
+    {
+    <p>
+        <em>Loading...</em>
+    </p>
+    }
+    else
+    {
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var habitant in _habitants)
+        {
+        <tr>
+            <td>@habitant.NameRu / @habitant.NameLat</td>
+            <td>@habitant.Status.Data.Item.Description</td>
+        </tr>
+        }
+        </tbody>
+    </table>
+    }
 
 </div>
 
 @code {
+    private IEnumerable<HabitantItemResponse> _habitants;
 
-    
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _habitants = await StrapiApiService.GetHabitantsAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+
+            throw;
+        }
+    }
 
 }
