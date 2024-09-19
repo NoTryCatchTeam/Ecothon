@@ -9,7 +9,7 @@
 
     <NavMenu/>
 
-    <h3 style="margin-top: 32px">Реестр территорий</h3>
+    <h3 style="margin-top: 32px; margin-left: 24px">Реестр территорий</h3>
 
     <div class="container-fluid page-content">
 
@@ -95,6 +95,6 @@
 
     private void OnTerritoryClickAction(int i)
     {
-        // NavigationManager.NavigateTo();
+        NavigationManager.NavigateTo($"/registry-territories/{i}");
     }
 }
