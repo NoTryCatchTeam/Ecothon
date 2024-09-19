@@ -28,7 +28,7 @@ public class StrapiApiService : IStrapiApiService
 
     public async Task<IEnumerable<HabitantItemResponse>> GetHabitantsAsync()
     {
-        var habitantsResponse = await _httpClient.GetAsync("rb-objects?populate[gallery]=*&populate[photo]=*&populate[status]=*");
+        var habitantsResponse = await _httpClient.GetAsync("rb-objects?populate[gallery]=*&populate[photo]=*&populate[status]=*&populate[family]=*");
 
         habitantsResponse.EnsureSuccessStatusCode();
 

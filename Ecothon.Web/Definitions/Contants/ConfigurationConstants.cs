@@ -8,7 +8,9 @@ public class ConfigurationConstants
 
         public class Strapi
         {
-            public const string API_BASE_URL = "Strapi:ApiBaseUrl";
+            public const string STRAPI_API_BASE_URL = "Strapi:ApiBaseUrl";
+            
+            public const string BASE_URL = "Strapi:BaseUrl";
 
             public const string API_TOKEN = "Strapi:ApiToken";
         }

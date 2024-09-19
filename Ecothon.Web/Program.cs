@@ -44,7 +44,7 @@ builder.Services
         serviceProvider => new AuthorizationHttpMessageHandler(async () => await serviceProvider.GetRequiredService<ILocalStorageService>().GetItemAsStringAsync(LocalStorageConstants.ACCESS_TOKEN)));
 
 builder.Services
-    .AddHttpClient(HttpClientConstants.HttpClientNames.STRAPI_API, client => client.BaseAddress = new Uri(builder.Configuration.GetValue<string>(ConfigurationConstants.AppSettings.Strapi.API_BASE_URL)))
+    .AddHttpClient(HttpClientConstants.HttpClientNames.STRAPI_API, client => client.BaseAddress = new Uri(builder.Configuration.GetValue<string>(ConfigurationConstants.AppSettings.Strapi.STRAPI_API_BASE_URL)))
     .ConfigurePrimaryHttpMessageHandler(serviceProvider => new AuthorizationHttpMessageHandler(() => Task.FromResult(serviceProvider.GetRequiredService<IConfiguration>().GetValue<string>(ConfigurationConstants.AppSettings.Strapi.API_TOKEN))));
 
 await builder.Build().RunAsync();
