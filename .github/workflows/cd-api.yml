@@ -22,4 +22,13 @@ jobs:
                 docker rmi swamp1820/ecothon-api
                 docker pull swamp1820/ecothon-api:latest
                 docker run --name api -d --restart always -p 8080:8080 \
+                -e "Jwt__Secret=${{ secrets.API_JWT_SECRET }}" \
+                -e "Jwt__Issuer=NoTryCatchTeam" \
+                -e "Jwt__Audience=NoTryCatchUsers" \
+                -e "Jwt__AccessTokenExpiresInMins=10" \
+                -e "Jwt__RefreshTokenExpiresInMins=60" \
+                -e "Db__Username=${{ secrets.API_DB_USERNAME }}" \
+                -e "Db__Password=${{ secrets.API_DB_PASSWORD }}" \
+                -e "Db__Host=${{ secrets.API_DB_HOST }}" \
+                -e "Db__DbName=${{ secrets.API_DB_NAME }}" \
                 swamp1820/ecothon-api 
