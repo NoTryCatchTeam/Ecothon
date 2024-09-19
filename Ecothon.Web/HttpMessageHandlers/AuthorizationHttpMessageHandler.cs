@@ -6,16 +6,16 @@ namespace Ecothon.Web.HttpMessageHandlers;
 
 public class AuthorizationHttpMessageHandler : HttpClientHandler
 {
-    private readonly ILocalStorageService _localStorageService;
+    private readonly Func<Task<string>> _accessTokenProvider;
 
-    public AuthorizationHttpMessageHandler(ILocalStorageService localStorageService)
+    public AuthorizationHttpMessageHandler(Func<Task<string>> accessTokenProvider)
     {
-        _localStorageService = localStorageService;
+        _accessTokenProvider = accessTokenProvider;
     }
 
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
-        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", await _localStorageService.GetItemAsStringAsync(LocalStorageConstants.ACCESS_TOKEN, cancellationToken));
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", await _accessTokenProvider());
 
         return await base.SendAsync(request, cancellationToken);
     }
