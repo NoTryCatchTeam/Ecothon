@@ -123,6 +123,7 @@ builder.Services.AddCors(
             "https://localhost:7282",
             "http://45.142.36.65",
             "http://45.142.36.65:8080",
+            "http://ecothon.notrycatch.team",
         };
 
         options.AddPolicy(
