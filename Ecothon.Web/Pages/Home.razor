@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using Ecothon.Web.Definitions.Strapi.Responses
 @inject IJSRuntime Js
 @inject IStrapiApiService StrapiApiService
 
@@ -44,12 +45,12 @@
             </div>
 
             <div class="park-section registry @(_selectedMenuItem == 1 ? "active" : "")">
-                @foreach (var registryObject in _registryObjects)
+                @foreach (var habitant in _habitants)
                 {
                     <div class="registry-item" @onclick="OnRegistryItemClickAction">
                         <img class="registry-item-image" src="images/image_gornostai_small.png" alt="Gornostai"/>
-                        <h6 class="registry-item-name">@registryObject.Name</h6>
-                        <p class="registry-item-specie">@registryObject.Specie</p>
+                        <h6 class="registry-item-name">@habitant.NameRu</h6>
+                        <p class="registry-item-specie">@habitant.NameLat</p>
                     </div>
                 }
             </div>
@@ -107,7 +108,7 @@
 @code
 {
     private int _selectedMenuItem;
-    private IEnumerable<RegistryObject> _registryObjects;
+    private HabitantItemResponse[] _habitants;
     private string _parkDisplayStyle;
     private string _objectDisplayStyle;
     private bool _parkOpened;
@@ -139,6 +140,8 @@
                     await Js.InvokeVoidAsync("addPolygonOnMap", polygon.Coordinates.SelectMany(c => c).Select(x => x.Reverse()).ToArray(), park.Name, park.Name, _objRef);
                 }
             }
+            
+            _habitants = (await StrapiApiService.GetHabitantsAsync()).ToArray();
         }
         catch
         {
@@ -159,15 +162,8 @@
         _objRef = DotNetObjectReference.Create(this);
         ChangeParkDisplayStyle();
         ChangeObjectDisplayStyle();
-
-        _registryObjects = new []
-        {
-            new RegistryObject { Name = "Горностай", Specie = "Mustela erminea Linnaeus" },
-            new RegistryObject { Name = "Брат Горностая", Specie = "Mustela erminea Linnaeus 1" },
-            new RegistryObject { Name = "Сестра Горностая", Specie = "Mustela erminea Linnaeus 2" },
-            new RegistryObject { Name = "Сват Горностая", Specie = "Mustela erminea Linnaeus 3" },
-        };
     }
+    
 
     private void OnMenuItemClicked(int item)
     {
@@ -209,5 +205,4 @@
 
         public string Specie { get; set; }
     }
-
 }
