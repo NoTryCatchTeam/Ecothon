@@ -12,7 +12,7 @@ function initializeMap(latitude, longitude){
     });
 }
 
-function addPolygonOnMap(coordinates, name) {
+function addPolygonOnMap(coordinates, name, id, dotNetHelper) {
     if (window.map){
         const polygon = new ymaps.Polygon([
             coordinates
@@ -22,6 +22,10 @@ function addPolygonOnMap(coordinates, name) {
             fillColor: '#EE1E23',
             fillOpacity: 0.4,
             strokeWidth: 0
+        });
+
+        polygon.events.add('click', function (e) {
+            dotNetHelper.invokeMethodAsync('OnPolygonClicked', id);
         });
 
         window.map.geoObjects.add(polygon);

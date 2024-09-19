@@ -5,10 +5,6 @@
 
 <div id="map" class="map"></div>
 
-<img id="map-polygon" src="images/image_polygon.svg" alt="polygon"
-     style="position: absolute; top: 50%; left: 40%"
-     @onclick="OnPolygonClickActionAsync"/>
-
 <div class="container-fluid main">
 
     <NavMenu/>
@@ -115,6 +111,19 @@
     private string _objectDisplayStyle;
     private bool _parkOpened;
     private bool _objectsOpened;
+    private DotNetObjectReference<Home> _objRef;
+    
+    [JSInvokable]
+    public void OnPolygonClicked(string id)
+    {
+        _parkOpened = true;
+        ChangeParkDisplayStyle();
+        StateHasChanged();
+
+    // Api request, update _registryObjects
+    }
+
+    public void Dispose() => _objRef?.Dispose();
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -131,35 +140,28 @@
                 new[] { 55.75, 37.80 }
             };
             
-            await Js.InvokeVoidAsync("addPolygonOnMap", coordinates, "name");
+            await Js.InvokeVoidAsync("addPolygonOnMap", coordinates, "name", "id", _objRef);
         }
     }
 
     protected override void OnInitialized()
     {
+        _objRef = DotNetObjectReference.Create(this);
         ChangeParkDisplayStyle();
         ChangeObjectDisplayStyle();
 
-        _registryObjects =
-        [
+        _registryObjects = new []
+        {
             new RegistryObject { Name = "Горностай", Specie = "Mustela erminea Linnaeus" },
             new RegistryObject { Name = "Брат Горностая", Specie = "Mustela erminea Linnaeus 1" },
             new RegistryObject { Name = "Сестра Горностая", Specie = "Mustela erminea Linnaeus 2" },
             new RegistryObject { Name = "Сват Горностая", Specie = "Mustela erminea Linnaeus 3" },
-        ];
+        };
     }
 
     private void OnMenuItemClicked(int item)
     {
         _selectedMenuItem = item;
-    }
-
-    private async Task OnPolygonClickActionAsync()
-    {
-        _parkOpened = true;
-        ChangeParkDisplayStyle();
-
-        // Api request, update _registryObjects
     }
 
     private void OnRegistryItemClickAction()
