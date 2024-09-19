@@ -23,4 +23,13 @@ public class HabitantItemResponse
     public BaseStrapiResponse<StrapiItemResponse<StrapiGeneralMedia>> Photo { get; set; }
 
     public BaseStrapiResponse<StrapiItemResponse<HabitantStatus>> Status { get; set; }
+
+    public BaseStrapiResponse<StrapiItemResponse<HabitantFamily>> Family { get; set; }
+}
+
+public class HabitantFamily
+{
+    public string NameRu { get; set; }
+
+    public string NameLat { get; set; }
 }
