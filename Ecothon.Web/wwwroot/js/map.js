@@ -10,7 +10,12 @@ function initializeMap(latitude, longitude){
         // from 0 (the entire world) to 19.
         zoom: 10,
         controls: [],
+    }, {
+        suppressMapOpenBlock: true
     });
+
+    // Remove unnecessary layers including street signs
+    window.map.layers.remove(['traffic#actual', 'layer#satellite', 'layer#map', 'hybrid#map']);
 }
 
 function addPolygonOnMap(coordinates, name, id, dotNetHelper) {
