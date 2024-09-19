@@ -27,6 +27,7 @@ jobs:
         json: ${{ secrets.SECRETS_JSON_CLIENT }}
         dir: 'Ecothon.Web/'
 
+
     - name: Build the CMS Docker image
       run: docker build . --file ./cms/Dockerfile --tag ${{secrets.DOCKER_USER}}/ecothon-cms:latest
       

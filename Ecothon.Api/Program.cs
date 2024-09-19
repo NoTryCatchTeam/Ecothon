@@ -13,7 +13,8 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Configuration.AddJsonFile("secrets.json", false, true);
+builder.Configuration.AddJsonFile("secrets.json", true, true);
+builder.Configuration.AddEnvironmentVariables();
 
 if (!builder.Environment.IsProduction())
 {
