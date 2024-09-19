@@ -26,4 +26,15 @@ public class StrapiApiService : IStrapiApiService
 
         return park.Data.Item;
     }
+
+    public async Task<IEnumerable<HabitantItemResponse>> GetHabitantsAsync()
+    {
+        var habitantsResponse = await _httpClient.GetAsync("rb-objects?populate[gallery]=*&populate[photo]=*&populate[status]=*");
+
+        habitantsResponse.EnsureSuccessStatusCode();
+
+        var habitants = JsonHelpers.Deserialize<BaseStrapiResponse<IEnumerable<StrapiItemResponse<HabitantItemResponse>>>>(await habitantsResponse.Content.ReadAsStringAsync());
+
+        return habitants.Data.Select(x => x.Item).ToArray();
+    }
 }
