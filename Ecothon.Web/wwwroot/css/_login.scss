@@ -1,0 +1,47 @@
+@import 'base/var';
+@import 'base/mixins';
+
+.login-form {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .login-form-container {
+    border-radius: 12px;
+    border: 1px solid $color-background-globe;
+    background: $color-background-light;
+    box-shadow: $shadow-base;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    pointer-events: auto;
+
+    width: 400px;
+    max-width: 400px;
+
+    @include _mobile {
+      width: 100%;
+      margin: 0px 24px;
+    }
+
+    .login-form-label {
+      @include body-s;
+      margin-top: 24px;
+      color: $color-gray-60;
+    }
+    
+    .login-forgot-password{
+      border-color: transparent;
+      background-color: transparent;
+      color: $color-indicator;
+      margin-top: 6px;
+    }
+
+    .login-btn{
+      width: 100%;
+      padding: 6px 0;
+      margin-top: 24px;
+    }
+  }
+}

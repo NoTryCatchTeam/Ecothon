@@ -3,17 +3,25 @@
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
-<EditForm Model="@Form" OnSubmit="@LoginAsync" FormName="LoginForm">
-    <div>
-        <label for="input_email">Email</label>
-        <input @bind="Form.Email" type="text" id="input_email" placeholder="Email">
+<div class="login-form">
+
+    <div class="container-fluid login-form-container">
+        
+    <EditForm Model="@Form" OnSubmit="@LoginAsync" FormName="LoginForm">
+        <div>
+            <label for="input_email" class="login-form-label">Email:</label>
+            <input @bind="Form.Email" type="text" id="input_email" placeholder="Введите Email">
+        </div>
+        <div class="login-form-label">
+            <label for="input_password">Пароль:</label>
+            <input @bind="Form.Password" type="password" id="input_password" placeholder="Введите пароль">
+        </div>
+        <button class="btn login-forgot-password">Забыли пароль?</button>
+        <button type="submit" class="btn login-btn btn-secondary">Submit</button>
+    </EditForm>
     </div>
-    <div>
-        <label for="input_password">Password</label>
-        <input @bind="Form.Password" type="password" id="input_password" placeholder="Password">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</EditForm>
+    
+</div>
 
 @code
 {
