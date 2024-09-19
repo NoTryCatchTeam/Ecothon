@@ -1,6 +1,9 @@
 ﻿<div class="container-fluid nav">
     <div>
-        <h5 class="accent" style="text-transform: uppercase">Красная книга</h5>
+        <div style="display: flex; column-gap: 4px; align-items: center">
+            <img src="images/ic_tree.svg" alt="logo"/>
+            <h5 class="accent" style="text-transform: uppercase">Красная книга</h5>
+        </div>
         <h6 class="h8" style="margin-top: -2px; text-transform: uppercase">Города Москвы</h6>
     </div>
 
@@ -20,6 +23,13 @@
                 Реестр территорий
             </NavLink>
         </div>
+        <AuthorizeView>
+            <div class="btn">
+                <NavLink href="/requests">
+                    Реестр моих заявок
+                </NavLink>
+            </div>
+        </AuthorizeView>
     </div>
 
     <NavLink href="/profile">
