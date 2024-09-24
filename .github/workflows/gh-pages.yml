@@ -6,6 +6,7 @@ on:
     paths:
       - 'Ecothon.Web/**'
       - 'Ecothon.Dtos/**'
+      - '.github/workflows/gh-pages.yml'
 jobs:
   build:
 
