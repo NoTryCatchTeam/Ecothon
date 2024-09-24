@@ -20,6 +20,7 @@ jobs:
         dotnet-version: '8.0'
     - run: dotnet publish ./Ecothon.Web/
     - run: echo "* binary" >> Ecothon.Web/bin/Release/net8.0/publish/wwwroot/.gitattributes
+    - run: touch Ecothon.Web/bin/Release/net8.0/publish/wwwroot/.nojekyll
     - name: Deploy 
       uses: JamesIves/github-pages-deploy-action@releases/v3                             
       with:  
