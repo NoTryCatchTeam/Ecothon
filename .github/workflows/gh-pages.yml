@@ -21,7 +21,7 @@ jobs:
     - run: dotnet publish ./Ecothon.Web/
     - run: echo "* binary" >> Ecothon.Web/bin/Release/net8.0/publish/wwwroot/.gitattributes
     - run: touch Ecothon.Web/bin/Release/net8.0/publish/wwwroot/.nojekyll
-    - run: sed -i 's+<base href="/" />+<base href="/Ecothon/" />+g' index.html
+    - run: sed -i 's+<base href="/" />+<base href="/Ecothon/" />+g' Ecothon.Web/bin/Release/net8.0/publish/wwwroot/index.html
     - name: Deploy 
       uses: JamesIves/github-pages-deploy-action@releases/v3                             
       with:  
