@@ -2,8 +2,10 @@ name: Github Pages CI
 
 on:
   push:
-    branches: [ "master" ]
-
+    branches: [ "main" ]
+    paths:
+      - 'Ecothon.Web/**'
+      - 'Ecothon.Dtos/**'
 jobs:
   build:
 
