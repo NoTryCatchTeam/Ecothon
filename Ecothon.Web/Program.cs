@@ -34,9 +34,9 @@ builder.Services.AddBlazoredLocalStorage(
     });
 
 builder.Services.AddCascadingAuthenticationState();
-builder.Services.AddScoped<AuthenticationStateProvider, JwtAuthenticationStateProvider>();
+builder.Services.AddScoped<AuthenticationStateProvider, JwtAuthenticationStateProviderMock>();
 builder.Services.AddScoped(sp => (IAuthService)sp.GetRequiredService<AuthenticationStateProvider>());
-builder.Services.AddTransient<IStrapiApiService, StrapiApiService>();
+builder.Services.AddTransient<IStrapiApiService, StrapiApiServiceMock>();
 
 builder.Services
     .AddHttpClient(HttpClientConstants.HttpClientNames.API, client => client.BaseAddress = new Uri(builder.Configuration.GetValue<string>(ConfigurationConstants.AppSettings.API_BASE_URL)))
@@ -46,5 +46,8 @@ builder.Services
 builder.Services
     .AddHttpClient(HttpClientConstants.HttpClientNames.STRAPI_API, client => client.BaseAddress = new Uri(builder.Configuration.GetValue<string>(ConfigurationConstants.AppSettings.Strapi.STRAPI_API_BASE_URL)))
     .ConfigurePrimaryHttpMessageHandler(serviceProvider => new AuthorizationHttpMessageHandler(() => Task.FromResult(serviceProvider.GetRequiredService<IConfiguration>().GetValue<string>(ConfigurationConstants.AppSettings.Strapi.API_TOKEN))));
+
+builder.Services
+    .AddHttpClient(HttpClientConstants.HttpClientNames.LOCAL, client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress));
 
 await builder.Build().RunAsync();

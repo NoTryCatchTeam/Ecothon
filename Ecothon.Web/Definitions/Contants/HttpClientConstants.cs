@@ -7,5 +7,7 @@ public class HttpClientConstants
         public const string API = "Api";
 
         public const string STRAPI_API = "StrapiApi";
+
+        public const string LOCAL = "Local";
     }
 }
