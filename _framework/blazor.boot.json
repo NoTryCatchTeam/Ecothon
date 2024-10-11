@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Ecothon.Web",
   "resources": {
-    "hash": "sha256-p55Zzu03KeY1MQi2vh3uwrH1Or+ispPJeVjh1NLhUyE=",
+    "hash": "sha256-buqHuMnyEMT7HhmDKQ7uysPg1F9VT/m8u0YnRaA8rc0=",
     "jsModuleNative": {
       "dotnet.native.8.0.10.4xsnm8lwn6.js": "sha256-QVxMlY7ohmjgde/bZMA0dlWDAeuUP+tEfkiSdg4DFcE="
     },
@@ -18,8 +18,8 @@
     },
     "assembly": {
       "Blazored.LocalStorage.wasm": "sha256-OaMAAd5n7ORfyur5e3QIyEVKJ76MKIvwbg7/icnnYcU=",
-      "Ecothon.Dtos.wasm": "sha256-4996siyk2kH/f7pfLkXYCnZv5FTYQgVxvZppdvXenUM=",
-      "Ecothon.Web.wasm": "sha256-yrH1KCmFvx/FjboZPXFlwXv64693AnrNyYZXrs7UEII=",
+      "Ecothon.Dtos.wasm": "sha256-bsqhdnLNFiMrMbTxgL/aqSDx+Z+PDjjWo4oqeVi+wx0=",
+      "Ecothon.Web.wasm": "sha256-pzDam79goIl33+OygnfBqOFpK7p/QItisCqmexdb20w=",
       "Microsoft.AspNetCore.Authorization.wasm": "sha256-nTb/S5NHtYLkQ6GWnpg9oEmwcV5wvmHP7YeyDmXq+lA=",
       "Microsoft.AspNetCore.Components.Authorization.wasm": "sha256-fpngwNQPByVR0Hv2lVxvrhr0KcTO3Mws8frWyF2gM3k=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-Pq2eSw2+D80T7X2I613xuc69HYUEiOKqafqFs8F45Ss=",
